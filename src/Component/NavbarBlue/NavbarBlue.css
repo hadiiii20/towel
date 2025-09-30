@@ -6,6 +6,7 @@
     position: fixed;
     left: 0;
     right: 0;
+    top: 0;
     display: grid;
     grid-template: 1fr / 1fr 2fr 1fr;
     height: 8rem;
@@ -29,7 +30,6 @@
     font-weight: 600;
     justify-items: center;
 
-
 }
 .menu-item:nth-child(3){
     opacity: 0
@@ -52,12 +52,11 @@
     align-items: center;
 }
 svg{
-    color: var(--white) !important;
-}
-.login-icon{
- 
     
 }
-.buy-icon{
-    
+.login-icon svg{
+    color: var(--white);   
+}
+.buy-icon svg{
+    color: var(--white);   
 }

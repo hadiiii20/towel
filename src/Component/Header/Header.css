@@ -1,0 +1,34 @@
+.section{
+    margin-top: 15rem ;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.coursel-header{
+    width: 35rem;
+    height: 35rem;
+    box-shadow: 0 0 5rem var(--blue-main);
+    border-radius:50% ;
+}
+.title-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+   
+}
+.titleh1{
+    font-family: "Lalezar";
+    color: var(--blue-main);
+    font-size: 7rem;
+}
+.titleh3{
+    color: var(--green-main);
+    font-weight: 600;
+    font-size: 4rem;
+}
+.titleh5{
+    color: var(--blue-main);
+    font-size: 2.5rem;
+
+}
