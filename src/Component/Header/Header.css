@@ -6,7 +6,7 @@
     margin-left: auto;
 }
 .section{
-    margin-top: 10rem ;
+    margin-top: 7rem ;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -17,6 +17,7 @@
     flex-direction: column;
     align-items: center;
     gap: 2.5rem;
+    margin-top: 4rem;
    
 }
 .titleh1{
@@ -35,9 +36,31 @@
 
 }
 
-
-
-.swiper {
+.mybtn{
+    padding: 2rem 3rem;
+    background-color: var(--green-main);
+    border-radius: 2rem;
+    color:var(--blue);
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 3rem;
+    font-size: 1.8rem;
+    transition: all 250ms ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.mybtn:hover{
+    color:var(--green-main);
+    background-color: var(--blue);
+}
+.mybtn-svg{
+    transition: all 250ms ease-in-out;;
+}
+.mybtn:hover .mybtn-svg{
+    transform: translateX(-5px);
+}
+/* .swiper {
   width: 50rem;
   height: 45rem;
   text-align: left;
@@ -56,20 +79,24 @@
 }
 .swiper-slide-visible img{
     filter:blur(0) !important;
-}
-.imgwoman{
+} */
+
+.img-woman{
     
    
 }
-.imgwoman img{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: -11rem ;
-    width: 40rem;
-    margin: 0 auto;
-    z-index: 30;
+.img-woman img{
+    width: 28.5rem;
 }
+.img-men{
+
+}
+.img-men img{
+    width: 34rem;
+}
+
+
+
 /* .mens img{
     position: absolute;
     bottom: 15rem;
