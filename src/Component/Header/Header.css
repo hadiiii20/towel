@@ -1,14 +1,16 @@
+.container{
+    width: 100%;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+    margin-right: auto;
+    margin-left: auto;
+}
 .section{
-    margin-top: 15rem ;
+    margin-top: 10rem ;
     display: flex;
     justify-content: space-around;
     align-items: center;
-}
-.coursel-header{
-    width: 35rem;
-    height: 35rem;
-    box-shadow: 0 0 5rem var(--blue-main);
-    border-radius:50% ;
+    position: relative;
 }
 .title-wrapper{
     display: flex;
@@ -25,10 +27,55 @@
 .titleh3{
     color: var(--green-main);
     font-weight: 600;
-    font-size: 4rem;
+    font-size: 3.5rem;
 }
 .titleh5{
     color: var(--blue-main);
     font-size: 2.5rem;
 
 }
+
+
+
+.swiper {
+  width: 50rem;
+  height: 45rem;
+  text-align: left;
+  margin-left:0 !important;
+  margin-right:7rem !important;
+
+}
+
+.swiper-slide-shadow{
+    background: none !important;
+}
+.swiper-slide img{
+    filter: blur(3px) !important;
+    width: 170px;
+    height: 450px;
+}
+.swiper-slide-visible img{
+    filter:blur(0) !important;
+}
+.imgwoman{
+    
+   
+}
+.imgwoman img{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: -11rem ;
+    width: 40rem;
+    margin: 0 auto;
+    z-index: 30;
+}
+/* .mens img{
+    position: absolute;
+    bottom: 15rem;
+    left: -2rem;
+    width: 30rem;
+    margin: 0 auto;
+    filter: blur(2px); */
+
+/* } */
