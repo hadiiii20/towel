@@ -22,8 +22,10 @@
     left: 0;
     right: 0;
     margin: 0 auto;
-    bottom: -55px;
+    bottom: -5.5rem;
     z-index: 1000;
+    transition: all 150ms ease-in-out;
+    width: 10rem;
 }
 .menu{
     display: grid;
@@ -61,4 +63,10 @@ svg{
 }
 .buy-icon svg{
     color: var(--white);   
+}
+.menu-item a, .buy-icon svg, .login-icon svg {
+    transition: all 250ms ease-in-out;
+}
+.menu-item a:hover, .login-icon svg:hover, .buy-icon svg:hover{
+    color: var(--green-main);
 }
