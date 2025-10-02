@@ -33,9 +33,7 @@
 .titleh5{
     color: var(--blue-main);
     font-size: 2.5rem;
-
 }
-
 .mybtn{
     padding: 2rem 3rem;
     background-color: var(--green-main);
@@ -60,12 +58,22 @@
 .mybtn:hover .mybtn-svg{
     transform: translateX(-5px);
 }
+.img-woman{
+    display: flex;
+    justify-content: left; 
+}
+.img-woman img, .img-men img{
+    width: 34rem;
+}
+
+
 
 /* swiper----------- */
 .swiper{
     width: 34rem;
     margin-left:0 !important;
     margin-right:0 !important;
+    margin-top: 1rem;
 }
 
 .swiper .swiper-button-prev , 
@@ -79,7 +87,132 @@
 }
 
 
+/* /responsive------------- */
 
+@media (max-width:1400px) {
+   
+}
+
+@media (max-width:1210px) {
+    .titleh1{
+        font-size: 6rem;
+    }
+    .titleh3{
+        font-size: 2.5rem;
+    }
+    .titleh5{
+        font-size: 2.5rem;
+    }
+    .swiper, .img-woman img, .img-men img{
+        width: 28rem;
+    }
+    
+   
+}
+
+@media (max-width:992px) {
+    .titleh1{
+        font-size: 5rem;
+    }
+    .titleh3{
+
+        font-size: 2.3rem;
+    }
+    .titleh5{
+        font-size: 2rem;
+    }
+    .swiper, .img-woman img, .img-men img{
+        width: 20rem;
+    }
+    .mybtn{
+        padding: 1.3rem 2rem;
+        margin-top: 0;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width:768px) {
+    .titleh1{
+        font-size: 3rem;
+    }
+    .titleh3{
+
+        font-size: 1.4rem;
+    }
+    .titleh5{
+        font-size: 1.3rem;
+    }
+    .swiper, .img-woman img, .img-men img{
+        width: 17rem;
+    }
+    .mybtn{
+        padding: 0.8rem 1.2rem;
+        margin-top: 0;
+        font-size: 1rem;
+    }
+
+}
+
+@media (max-width:576px) {
+    .section{
+        margin-top: 7rem ;
+        display: grid;
+        grid-template: 1fr 1fr /1fr 1fr;
+        justify-content: center;
+        align-items: center;
+    }
+    .title-wrapper{
+        grid-column:1/span 2;
+    }
+    .swiper-men{
+        grid-row-start:2;
+        justify-self: center;
+    }
+    .swiper-woman{
+        justify-self: center;
+    }
+    .titleh1{
+        font-size: 4rem;
+    }
+    .titleh3{
+
+        font-size: 2.2rem;
+    }
+    .titleh5{
+        font-size: 2rem;
+    }
+    .swiper, .img-woman img, .img-men img{
+        width: 15rem;
+    }
+    .mybtn{
+        padding: 0.8rem 1.2rem;
+        margin-bottom: 2rem;
+        margin-top: 1rem;
+        font-size: 1.3rem;
+    }
+     .swiper, .img-woman img, .img-men img{
+        width: 17rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ////////////////////////////////// */
 /* .swiper {
   width: 50rem;
   height: 45rem;
@@ -101,30 +234,4 @@
     filter:blur(0) !important;
 } */
 
-.img-woman{
-    display: flex;
-    justify-content: left;
 
-   
-}
-.img-woman img{
-    width: 34rem;
-}
-.img-men{
-
-}
-.img-men img{
-    width: 34rem;
-}
-
-
-
-/* .mens img{
-    position: absolute;
-    bottom: 15rem;
-    left: -2rem;
-    width: 30rem;
-    margin: 0 auto;
-    filter: blur(2px); */
-
-/* } */

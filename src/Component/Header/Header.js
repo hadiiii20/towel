@@ -31,23 +31,22 @@ export default function Header() {
                     pagination={true}
                     navigation={true}
                     autoplay={{
-                        delay: 2800,
+                        delay: 3800,
                         disableOnInteraction: false,
                     }}
                     modules={[EffectFlip, Pagination, Navigation, Autoplay]}
-                    className="mySwiper"
+                    className="mySwiper swiper-men"
                 >
                     <SwiperSlide className="img-men">
-                        <img src="./images/younas1.png" alt="" />
+                        <img src="./images/younas2.png" alt="" />
                     </SwiperSlide>
                     <SwiperSlide className="img-men">
                         <img src="./images/jagvar1.png" alt="" />
                     </SwiperSlide>
+                    <SwiperSlide className="img-men">
+                        <img src="./images/classic1.png" alt="" />
+                    </SwiperSlide>
                 </Swiper>
-
-                {/* <div className="img-men">
-                    <img src="./images/younas1.png" alt="" />
-                </div> */}
                 <div className="title-wrapper">
                     <h1 className="titleh1">امروز در پودایران</h1>
                     <h3 className="titleh3">کالکشنی زیبا از جدیدترین حوله ها</h3>
@@ -79,23 +78,24 @@ export default function Header() {
                     pagination={true}
                     navigation={true}
                     autoplay={{
-                        delay: 2500,
+                        delay: 3500,
                         disableOnInteraction: false,
                     }}
                     modules={[EffectFlip, Pagination, Navigation, Autoplay]}
                     className="mySwiper swiper-woman"
                 >
                     <SwiperSlide className="img-woman">
-                        <img src="./images/paradais.png" alt="" />
+                        <img src="./images/abrangi.png" alt="" />
                     </SwiperSlide>
                     <SwiperSlide className="img-woman">
-                        <img src="./images/palangi1.png" alt="" />
+                        <img src="./images/palangi2.png" alt="" />
+                    </SwiperSlide>
+                    <SwiperSlide className="img-woman">
+                        <img src="./images/brash.png" alt="" />
                     </SwiperSlide>
                 </Swiper>
-
-                {/* <div className="img-woman">
-                    <img src="./images/paradais.png" alt="" />
-                </div> */}
+            </section>
+            <div>
                 {/* <Swiper
                     effect={"cards"}
                     grabCursor={true}
@@ -122,11 +122,7 @@ export default function Header() {
                         <img src="./images/classic.png" alt="" />{" "}
                     </SwiperSlide>
                 </Swiper> */}
-                {/* <div className="mens">
-                    <img src="./images/mens.png" alt="" />
-                </div> */}
-            </section>
-            <div>
+
                 <br />
                 <br />
                 <br />

@@ -7,22 +7,25 @@
     left: 0;
     right: 0;
     top: 0;
+    /* display: grid;
+    grid-template: 1fr / 4fr 3fr 1fr; */
     display: grid;
-    grid-template: 1fr / 1fr 2fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr  ;
+    grid-template-rows: 8rem;
+    grid-template-areas: 
+    "header header .";
     height: 8rem;
     font-weight: 300;
     z-index: 10;
 }
 
-.nav-logo{
-    
-}
+
 .nav-logo img{
-    position: absolute;
+    position: fixed;
     left: 0;
     right: 0;
     margin: 0 auto;
-    bottom: -5.5rem;
+    top: 4rem;
     z-index: 1000;
     transition: all 150ms ease-in-out;
     width: 10rem;
@@ -33,7 +36,7 @@
     align-items: center;
     font-weight: 600;
     justify-items: center;
-
+     grid-column-start: 2;
 }
 .menu-item:nth-child(3){
     opacity: 0
@@ -44,8 +47,8 @@
     text-decoration: none;
     font-size: 1.8rem;
 }
-.menu-item__active a{
-    color: var(--green-main);
+.menu-item__active{
+    color: var(--green-main) !important;
 }
 .icon-menu{
     display: flex;
@@ -55,9 +58,7 @@
     font-size: 0rem;
     align-items: center;
 }
-svg{
-    
-}
+
 .login-icon svg{
     color: var(--white);   
 }
@@ -69,4 +70,166 @@ svg{
 }
 .menu-item a:hover, .login-icon svg:hover, .buy-icon svg:hover{
     color: var(--green-main);
+}
+
+
+/* ---menu-hamberger----- */
+.wrapper-hamberger-menu{
+    background-color: var(--blue-main);
+    height: 100vh;
+    position: fixed;
+    z-index: 10001;
+    right: -60rem;
+    width: 20rem;
+    transition: all 350ms ease-in-out;
+
+}
+.menu-hamberger{
+    font-weight: 600;
+    margin-bottom: 2rem;
+    padding-top: 8rem;
+}
+.menu-hamberger-item__active {
+    color: var(--green-main) !important;
+    padding-right: 1.8rem;
+}
+.menu-hamberger-item__active::after{
+    content: "";
+    position: absolute;
+    width: 2rem;
+    height: 2.5px;
+    background-color: var(--green-main);
+    border-radius: 2px;
+    bottom: 1rem;
+    right: -0.6rem;
+    transition: all 250ms ease-in-out;
+}
+.menu-hamberger-item{
+    margin-bottom: 3rem;
+    margin-right: 2rem;
+}
+.menu-hamberger-item-link{
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1.6rem;
+    transition: all 250ms ease-in-out;
+    position: relative;
+}
+.menu-hamberger-item-link:hover{
+    color: var(--green-main);
+}
+.menu-hamberger-item-link::before{
+    content: "";
+    position: absolute;
+    width: 0rem;
+    height: 2.5px;
+    background-color: var(--green-main);
+    border-radius: 2px;
+    bottom: 1rem;
+    right: -0.6rem;
+    transition: all 250ms ease-in-out;
+}
+.menu-hamberger-item:hover .menu-hamberger-item-link::before{
+    width: 2rem;
+}
+.menu-hamberger-item-link:hover {
+    padding-right: 1.8rem;
+}
+
+
+.btn-hamberger-menu-wrapper{
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: var(--white); 
+    border-radius: 1rem;
+    display: none;
+    justify-content: center;
+    align-items: center ; 
+    margin-right: 3rem;
+    margin-top: 2rem;
+    z-index: 20000;
+
+}
+.btn-hamberger-menu{
+    width: 2rem;
+    height: 0.3rem;
+    border-radius: 0.2rem;
+    background-color: var(--blue-main);
+    position: relative;
+    transition: all 0.3s ease-in-out;
+
+}
+.btn-hamberger-menu::before,
+.btn-hamberger-menu::after{
+    content: '';
+    position: absolute;
+    width: 2rem;
+    height: 0.3rem;
+    background-color: var(--blue-main);
+    border-radius: 0.2rem;
+    transition: all 0.5s ease-in-out;
+}
+.btn-hamberger-menu::before{
+    top: -0.8rem;
+}
+.btn-hamberger-menu::after{
+    top: 0.8rem;
+}
+.btn-hamberger-menu-wrapper:hover{
+    cursor: pointer;
+     background-color: var(--green-main)
+
+     
+}
+
+.change-style .btn-hamberger-menu{
+  background-color: transparent;
+}
+.change-style .btn-hamberger-menu::after{
+    transform:translateY(-0.8rem) rotate(-45deg);
+}
+.change-style .btn-hamberger-menu::before{
+    transform:translateY(0.8rem) rotate(45deg);
+
+}
+
+
+
+
+
+/* ---responsive-------- */
+
+@media (max-width:992px) {
+  .menu-item a{
+    font-size: 1.5rem;
+   }
+}
+
+@media (max-width:768px) {
+    .menu{
+        display: none;
+    }
+    .nav{
+    display: grid;
+    grid-template: 1fr / 1fr 1fr;
+    height: 8rem;
+    font-weight: 300;
+    z-index: 10;
+    }
+    .btn-hamberger-menu-wrapper{
+        display: flex;
+    }
+    .nav-logo img{
+        width: 6.7rem !important;
+        top:0.6rem !important   ;
+    }
+    .icon-menu{
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 3rem;
+    gap: 2rem;
+    font-size: 0rem;
+    align-items: center;
+}
+
 }
