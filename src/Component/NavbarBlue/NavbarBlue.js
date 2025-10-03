@@ -23,7 +23,14 @@ export default function NavbarBlue() {
     };
     window.onclick = (e) => {
         let myClass = e.target.classList;
-        if (myClass[0] !== "btn-hamberger-menu-wrapper" && myClass[0] !== "btn-hamberger-menu") {
+        console.log(myClass);
+
+        if (
+            myClass[0] !== "btn-hamberger-menu-wrapper" &&
+            myClass[0] !== "btn-hamberger-menu" &&
+            myClass[0] !== "menu-hamberger" &&
+            myClass[0] !== "wrapper-hamberger-menu"
+        ) {
             if (openMenu === 0) {
                 setOpenMenu("-30rem");
                 setToggleStyle("");

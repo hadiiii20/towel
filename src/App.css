@@ -61,6 +61,11 @@ table {
     font-family: "Mikhak";
     src: url(../public/fonts/Mikhak.ttf) format('TrueType');
 }
+/* "Mikhak-Bold" */
+@font-face {
+    font-family: "MikhakBold";
+    src: url(../public/fonts/Mikhak-Bold.ttf) format('TrueType');
+}
 
 
 *,
