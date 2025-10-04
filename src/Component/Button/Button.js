@@ -3,5 +3,5 @@ import { Link } from "react-router-dom";
 import "./Button.css";
 
 export default function Button({ nameBtn }) {
-    return <Link className="mybtn">{nameBtn}</Link>;
+    return <Link className="comp-mybtn">{nameBtn}</Link>;
 }

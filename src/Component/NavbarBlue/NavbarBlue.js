@@ -11,10 +11,12 @@ export default function NavbarBlue() {
 
     window.onscroll = () => {
         let maxScroll = window.pageYOffset;
+        console.log(maxScroll);
+
         if (maxScroll > 30) {
             setLogoDisplay(0.7);
-            setLogoWidth("6.7rem");
-            setLogoTop("0.6rem");
+            setLogoWidth("6rem");
+            setLogoTop("0.9rem");
         } else {
             setLogoDisplay(1);
             setLogoWidth("10rem");

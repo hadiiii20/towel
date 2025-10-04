@@ -210,26 +210,26 @@
         display: none;
     }
     .nav{
-    display: grid;
-    grid-template: 1fr / 1fr 1fr;
-    height: 8rem;
-    font-weight: 300;
-    z-index: 10;
+        display: grid;
+        grid-template: 1fr / 1fr 1fr;
+        height: 8rem;
+        font-weight: 300;
+        z-index: 10;
     }
     .btn-hamberger-menu-wrapper{
         display: flex;
     }
     .nav-logo img{
-        width: 6.7rem !important;
-        top:0.6rem !important   ;
+        width: 6rem !important;
+        top:0.9rem !important   ;
     }
     .icon-menu{
-    display: flex;
-    justify-content: flex-end;
-    margin-left: 3rem;
-    gap: 2rem;
-    font-size: 0rem;
-    align-items: center;
-}
+        display: flex;
+        justify-content: flex-end;
+        margin-left: 3rem;
+        gap: 2rem;
+        font-size: 0rem;
+        align-items: center;
+    }
 
 }

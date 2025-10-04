@@ -1,0 +1,76 @@
+.div-img{
+    width: 30rem;
+    height: 30rem;
+    align-self: center;
+    transition: all 250ms ease-in-out;
+    position: relative;
+    border-radius: 4rem;
+    overflow: hidden;
+    cursor: pointer;
+}
+.img-hov{
+    background-color:  #0096d5a6;
+    top: 220px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    text-align: center;
+    transition: all 250ms ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-img:hover .img-hov{
+    top: 0px;
+}
+.div-img:hover .img-hov .title-img-category{
+    font-size: 2.8rem;
+}
+
+.categroy-img{
+    width: 100%;
+    height: 100%;
+   
+}
+.title-img-category{
+    font-family: "MikhakBold";
+    color: white;
+    font-size: 2rem;
+    transition: all 250ms ease-in-out;
+}
+
+
+/* /responsive------------- */
+
+@media (max-width:1400px) {
+   
+}
+
+@media (max-width:1210px) {
+
+   
+}
+
+@media (max-width:992px) {
+
+    
+}
+
+@media (max-width:768px) {
+    .div-img{
+        width: 25rem;
+        height: 25rem;
+    }
+    .img-hov{
+        top: 170px;
+    }
+}
+@media (max-width:576px) {
+   
+
+}
+
+
+
