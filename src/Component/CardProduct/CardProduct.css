@@ -1,0 +1,200 @@
+.CardProduct{
+    width: 35rem;
+    border-radius: 4rem  ;
+    border: 8px solid var(--blue-main);
+    transition: all 0.3s ease-in-out;
+    background-color:var(--blue-main);
+    overflow: hidden;
+    display: grid;
+    grid-template: auto auto/1fr;
+    position: relative;
+}
+
+.CardProduct-img-wrapper{
+    width: 100%;    
+    border-radius: 3rem;
+    border-bottom: 4px solid var(--blue-main);
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+}
+.CardProduct-img-cover{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color:rgba(30, 153, 253, 0.38);
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+}
+.CardProduct-img-wrapper:hover .CardProduct-img-cover{
+    opacity: 1;
+    cursor: pointer;
+}
+.CardProduct-img{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 0;
+}
+.CardProduct-btnImg-wrapper{
+    position:absolute;
+    inset: 0;
+    margin: auto;
+    width: 11rem;
+    height: 7.4rem;
+    border-radius: 2rem;  
+}
+.CardProduct-add-to-card, .CardProduct-view-more{
+    height: 3.7rem;
+    background-color: var(--blue-main);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color:var(--white);
+    opacity:0;
+    transition: all 0.4s ease-in-out;
+}
+.CardProduct-add-to-card span, .CardProduct-view-more span{
+    font-size: 1.4rem;
+    font-family: "mikhak";
+    font-weight: 600;
+    margin-right: 0.6rem;
+
+}
+.CardProduct-add-to-card{
+    border-radius: 2rem 2rem 0 0;   
+   
+}
+.CardProduct-add-to-card:hover{
+    background-color: var(--green-main);
+    color: var(--white);
+    transform: scale(0.95);
+    cursor: pointer;
+}
+.CardProduct-view-more{
+    border-radius: 0rem 0rem 2rem 2rem;
+    margin-top: 0.5rem;
+}
+.CardProduct-view-more:hover{
+    background-color: var(--green-main);
+    color: var(--white);
+    transform: scale(0.95);
+    cursor: pointer;
+}
+.CardProduct-img-wrapper:hover .CardProduct-view-more,.CardProduct-img-wrapper:hover .CardProduct-add-to-card{
+    opacity: 1;
+}
+.CardProduct-info-wrapper{
+    border-top: 4px solid var(--blue-main);
+    border-radius: 3rem;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding:1.5rem 1rem;
+    overflow: hidden;
+    padding-top:3rem ;
+
+}
+.CardProduct-title-wrapper{
+    background-color: var(--blue-main);
+    border-radius: 2rem;
+    padding: 1rem 2rem;
+    position:absolute ;
+    bottom: 12rem;
+    transition: all 300ms ease-in-out;
+    
+}
+.CardProduct-title{
+    font-family: "MikhakBold";
+    color: var(--white);
+}
+.price-wrapper{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap:1.2rem
+}
+.CardProduct-price{
+    font-family: "MikhakBold";
+    color: var(--blue-main);;
+    font-size: 2.2rem;
+    position: relative;
+}
+.CardProduct-price-unit{
+    font-family: "Mikhak";
+    font-size: 1.2rem;
+    padding-right: 0.5rem;
+    /* position: absolute; */
+    /* transform: rotate(-90deg); */
+    /* left: -22px;
+    top: 2px; */
+}
+.CardProduct-caption{
+    font-family: "Mikhak";
+    color: var(--blue-main);
+    font-size: 1.5rem;
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+}
+.help-size{
+    cursor: pointer;
+}
+.help-size:hover{
+    color: var(--green-main);
+}
+.CardProduct-caption strong{
+    font-weight: 600;
+}
+
+.sizeTowel-wrapper{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 5px;
+}
+.sizeTowel{
+    border: 2px solid var(--blue-main);
+    border-radius: 5px;
+    padding: 2px 5px;
+    color: var(--blue-main);
+    /* font-size: 1.4rem; */
+    font-weight: 600;
+    cursor: pointer;
+}
+.selected__size{
+    background-color: var(--green-main);
+}
+
+
+
+/* 
+.CardProduct:nth-child(even){
+  background-color: var(--green-main) ;
+  border:8px solid var(--green-main)
+}
+.CardProduct:nth-child(even) .CardProduct-img-wrapper{
+  border-bottom-color: var(--green-main);
+}
+.CardProduct:nth-child(even) .CardProduct-info-wrapper{
+    border-top-color: var(--green-main);
+}
+.CardProduct:nth-child(even)  .CardProduct-title-wrapper{
+    border-top-color: var(--green-main) ;
+}
+.CardProduct:nth-child(even) .CardProduct-title{
+  color: var(--white) ;
+}
+.CardProduct:nth-child(even) .CardProduct-price{
+  color: var(--blue-main) ;
+
+} */

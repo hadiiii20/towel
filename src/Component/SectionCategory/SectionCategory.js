@@ -4,6 +4,7 @@ import "./SectionCategory.css";
 import { Link } from "react-router-dom";
 import ImageCategory from "../ImageCategory/ImageCategory";
 import Divider from "../Divider/Divider";
+import SliderProducts from "../SliderProducts/SliderProducts";
 
 export default function SectionCategory() {
     const [detailsImg, setDetialsImg] = useState([
@@ -23,6 +24,17 @@ export default function SectionCategory() {
                 ))}
             </div>
             <Divider name={"جدیدترین ها"} />
+            <SliderProducts />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
         </div>
     );
 }

@@ -3,19 +3,20 @@
     display: grid;
     grid-template: 1fr 1fr/1fr 1fr 1fr;
     row-gap: 3.5rem;
+    margin-top: 2rem;
 }
 
 .div-img:nth-child(1),.div-img:nth-child(4){
     justify-self: end;
-    border: 1rem solid var(--green-main);
+    border: 0.8rem solid var(--green-main);
 }
 .div-img:nth-child(2),.div-img:nth-child(5){
     justify-self: center;
-    border: 1rem solid var(--blue-main);
+    border: 0.8rem solid var(--blue-main);
 }
 .div-img:nth-child(3),.div-img:nth-child(6){
     justify-self: start;
-    border: 1rem solid var(--green-main);
+    border: 0.8rem solid var(--green-main);
 }
 .div-img:nth-child(2) .img-hov,.div-img:nth-child(5) .img-hov{
     background-color: #dbe821a6;
