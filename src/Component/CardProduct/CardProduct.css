@@ -34,12 +34,26 @@
     opacity: 1;
     cursor: pointer;
 }
+.off-towel{
+    position: absolute;
+    width: 6rem;
+    top: 0rem;
+    left: -0.7rem;
+    background-color: rgb(211, 47, 47);
+    color: var(--white);
+    font-family: "MikhakBold";
+    font-size: 1.4rem;
+    padding: 1.4rem 1.8rem;
+    border-radius: 0 0 3.5rem;
+    z-index: 2;
+}
 .CardProduct-img{
     width: 100%;
     height: 100%;
     position: relative;
     z-index: 0;
 }
+
 .CardProduct-btnImg-wrapper{
     position:absolute;
     inset: 0;
@@ -122,11 +136,22 @@
     flex-direction: column;
     gap:1.2rem
 }
-.CardProduct-price{
+.CardProduct-price-wrapper{
     font-family: "MikhakBold";
     color: var(--blue-main);;
     font-size: 2.2rem;
     position: relative;
+}
+.CardProduct-price.off{
+    color: rgb(144, 164, 174);
+    text-decoration: line-through;
+    font-size: 1.6rem;
+    margin-right: 0.5rem;
+}
+.CardProduct-price.off+.CardProduct-price-unit{
+    color: rgb(144, 164, 174);
+    /* text-decoration: line-through; */
+    margin-left: 1rem;
 }
 .CardProduct-price-unit{
     font-family: "Mikhak";
@@ -171,7 +196,7 @@
     font-weight: 600;
     cursor: pointer;
 }
-.selected__size{
+.sizeTowel-input:checked +.sizeTowel{
     background-color: var(--green-main);
 }
 

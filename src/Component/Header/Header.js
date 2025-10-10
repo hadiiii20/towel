@@ -95,34 +95,6 @@ export default function Header() {
                     </SwiperSlide>
                 </Swiper>
             </section>
-            <div>
-                {/* <Swiper
-                    effect={"cards"}
-                    grabCursor={true}
-                    autoplay={{
-                        delay: 2000,
-                        disableOnInteraction: false,
-                    }}
-                    modules={[Autoplay, EffectCards]}
-                    className="mySwiper"
-                >
-                    <SwiperSlide>
-                        <img src="./images/younas.png" alt="" />{" "}
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="./images/malavan.png" alt="" />{" "}
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="./images/goli.png" alt="" />{" "}
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="./images/jagvar.png" alt="" />{" "}
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="./images/classic.png" alt="" />{" "}
-                    </SwiperSlide>
-                </Swiper> */}
-            </div>
         </div>
     );
 }

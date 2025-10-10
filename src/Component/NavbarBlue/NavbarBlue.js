@@ -11,7 +11,6 @@ export default function NavbarBlue() {
 
     window.onscroll = () => {
         let maxScroll = window.pageYOffset;
-        console.log(maxScroll);
 
         if (maxScroll > 30) {
             setLogoDisplay(0.7);
@@ -25,7 +24,6 @@ export default function NavbarBlue() {
     };
     window.onclick = (e) => {
         let myClass = e.target.classList;
-        console.log(myClass);
 
         if (
             myClass[0] !== "btn-hamberger-menu-wrapper" &&
@@ -70,8 +68,8 @@ export default function NavbarBlue() {
                 </ul>
 
                 {/* -Hamberger-menu--------- */}
-                <div class={`btn-hamberger-menu-wrapper ${toggleStyle}`} onClick={clickChangeStyle}>
-                    <div class="btn-hamberger-menu  "></div>
+                <div className={`btn-hamberger-menu-wrapper ${toggleStyle}`} onClick={clickChangeStyle}>
+                    <div className="btn-hamberger-menu  "></div>
                 </div>
                 <div className="wrapper-hamberger-menu" style={{ right: `${openMenu}` }}>
                     <ul className="menu-hamberger">

@@ -112,19 +112,19 @@
    
 }
 
-@media (max-width:992px) {
+@media (max-width:999px) {
     .titleh1{
         font-size: 5rem;
     }
     .titleh3{
 
-        font-size: 2.3rem;
+        font-size: 2.2rem;
     }
     .titleh5{
         font-size: 2rem;
     }
     .swiper, .img-woman img, .img-men img{
-        width: 20rem;
+        width: 19rem;
     }
     .mybtn{
         padding: 1.3rem 2rem;

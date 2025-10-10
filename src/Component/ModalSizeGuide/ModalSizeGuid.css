@@ -8,8 +8,14 @@
     background-color:rgba(78, 78, 78, 0.8);
     z-index: 10005;
     transition: all 0.4s ease-in-out;
-    display: none;
+    opacity: 1;
+    /* visibility: hidden; */
 }
+.modal-help-size.active{
+    opacity: 1;
+    visibility: visible;
+} 
+
 .modal-help-size-content{
     width: 90%;
     max-width: 600px;
@@ -28,6 +34,9 @@
     margin:auto;
     transition: all 0.4s ease-in-out;
     top: -200rem;
+}
+.modal-help-size.active .modal-help-size-content{
+    top: 0rem;
 }
 .modal-help-size-content h3{
     font-family: "MikhakBold";

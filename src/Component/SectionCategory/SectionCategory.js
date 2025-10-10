@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import ImageCategory from "../ImageCategory/ImageCategory";
 import Divider from "../Divider/Divider";
 import SliderProducts from "../SliderProducts/SliderProducts";
+import ModalSizeGuid from "../ModalSizeGuide/ModalSizeGuid";
 
 export default function SectionCategory() {
     const [detailsImg, setDetialsImg] = useState([
@@ -17,24 +18,11 @@ export default function SectionCategory() {
     ]);
     return (
         <div className="container">
-            <Divider name={"دسته بندی"} />
             <div className="category-wrapper">
                 {detailsImg.map((item) => (
-                    <ImageCategory title={item.title} src={item.source} />
+                    <ImageCategory title={item.title} src={item.source} key={item.id} />
                 ))}
             </div>
-            <Divider name={"جدیدترین ها"} />
-            <SliderProducts />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
         </div>
     );
 }
