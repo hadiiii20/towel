@@ -17,15 +17,16 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 // import required modules
-import { Autoplay } from "swiper/modules";
-import { EffectFlip, Pagination, Navigation } from "swiper/modules";
+
+import { EffectFlip, Pagination, Navigation, Autoplay } from "swiper/modules";
 
 export default function Header() {
     return (
-        <div className="container">
+        <>
             <NavbarBlue />
             <section className="section">
                 <Swiper
+                    loop={true}
                     effect={"flip"}
                     grabCursor={true}
                     pagination={true}
@@ -73,6 +74,7 @@ export default function Header() {
                     </Link>
                 </div>
                 <Swiper
+                    loop={true}
                     effect={"flip"}
                     grabCursor={true}
                     pagination={true}
@@ -95,6 +97,6 @@ export default function Header() {
                     </SwiperSlide>
                 </Swiper>
             </section>
-        </div>
+        </>
     );
 }

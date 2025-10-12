@@ -81,7 +81,8 @@ table {
 html{
     font-size: 10px;
     font-family: "Mikhak";
-   
+    scroll-behavior: smooth;
+    user-select: none;
 }
 body{
     font-size: 1.6rem;

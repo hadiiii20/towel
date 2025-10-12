@@ -21,14 +21,14 @@
     max-width: 600px;
     height: 80%;
     background-color: var(--white);
-    border-radius: 2rem;
+    border-radius: 5rem;
     padding: 2rem;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
     position:absolute;
     inset:0;
     margin:auto;
@@ -39,11 +39,22 @@
     top: 0rem;
 }
 .modal-help-size-content h3{
+    font-family: "Lalezar";
+    color: var(--blue-main);
+    font-size: 4rem;
+    text-align: center;
+    line-height: normal;
+}
+.modal-help-size-content h5{
     font-family: "MikhakBold";
     color: var(--blue-main);
     font-size: 2rem;
     text-align: center;
     line-height: normal;
+    margin-top: -1rem;
+    background-color: var(--green-main);
+    padding: 0.5rem 2.5rem;
+    border-radius: 2rem;
 }
 .modal-help-size-content img{
     width: 70%;

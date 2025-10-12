@@ -17,12 +17,10 @@ export default function SectionCategory() {
         { id: 6, title: "حوله دستی", source: "./images/hand.jpg" },
     ]);
     return (
-        <div className="container">
-            <div className="category-wrapper">
-                {detailsImg.map((item) => (
-                    <ImageCategory title={item.title} src={item.source} key={item.id} />
-                ))}
-            </div>
+        <div className="category-wrapper">
+            {detailsImg.map((item) => (
+                <ImageCategory title={item.title} src={item.source} key={item.id} />
+            ))}
         </div>
     );
 }

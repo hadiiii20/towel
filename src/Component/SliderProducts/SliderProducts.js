@@ -6,14 +6,16 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import "./SliderProducts.css";
-import { FreeMode, Pagination, Navigation } from "swiper/modules";
+import { FreeMode, Pagination, Navigation, Autoplay } from "swiper/modules";
 
 export default function SliderProducts({ productsSample }) {
     const [products, setProducts] = useState(productsSample);
     const [isShowModal, setIsShowModal] = useState(false);
+    const [type, setType] = useState();
 
-    const handleShowModal = () => {
+    const handleShowModal = (typeCard) => {
         setIsShowModal(!isShowModal);
+        setType(typeCard);
     };
 
     window.onclick = (e) => {
@@ -25,10 +27,16 @@ export default function SliderProducts({ productsSample }) {
     return (
         <>
             <Swiper
+                loop={true}
                 slidesPerView={1}
                 spaceBetween={10}
                 centeredSlides={false}
                 navigation={true}
+                autoplay={{
+                    delay: 2000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
+                }}
                 freeMode={{
                     enabled: true,
                     sticky: true,
@@ -52,7 +60,7 @@ export default function SliderProducts({ productsSample }) {
                         spaceBetween: 40,
                     },
                 }}
-                modules={[FreeMode, Navigation, Pagination]}
+                modules={[FreeMode, Navigation, Pagination, Autoplay]}
                 className="mySwiper swiper-sliderProducts"
             >
                 {products.map((item) => (
@@ -70,7 +78,11 @@ export default function SliderProducts({ productsSample }) {
             </Swiper>
             {isShowModal && (
                 <div className={`modal-wrapper ${isShowModal ? "active" : ""}`}>
-                    <ModalSizeGuid isActive={"active"} />
+                    {type === "kids" ? (
+                        <ModalSizeGuid isActive={"active"} title="تنپوش بچگانه" imgSrc="./images/childSize.jpg" />
+                    ) : (
+                        <ModalSizeGuid isActive={"active"} title="تنپوش بزرگسال" imgSrc="./images/adultSize.jpg" />
+                    )}
                 </div>
             )}
         </>
