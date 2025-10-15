@@ -96,6 +96,10 @@
 .footer-address:first-child::after{
     margin-top:0.8rem !important;
 }
+.footer-address span{
+    font-family: "mikhakBold";
+    margin-left: 1rem;
+}
 .footer-logo{
     display: flex;
     align-items: center;
@@ -139,18 +143,26 @@
    
 }
 
-@media (max-width:999px) {
+@media (max-width:992px) {
     .footer-bottom{
         left: 50%;
-        transform: translateX(-49%);
+        transform: translateX(-50%);
     }
 }
 
 @media (max-width:768px) {
-      .footer-bottom{
+    .footer-bottom{
         left: 50%;
-        transform: translateX(-48.5%);
+        transform: translateX(-49%);
     }
+    .footer-center{
+        display: none;
+    }
+    .footer{
+        grid-template: 4fr 1fr/ 1fr 1fr;
+        padding: 6rem 5rem;
+    }
+
 }
 
 @media (max-width:576px) {

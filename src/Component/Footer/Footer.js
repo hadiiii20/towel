@@ -42,10 +42,14 @@ export default function Footer() {
                         <ul className="ul-footer-left">
                             <li className="footer-address ">اطلاعات تماس</li>
                             <li className="footer-address">
-                                آدرس : تهران، کیلومتر ۱۸ جاده مخصوص کرج، خیابان ۶۳، کوچه دوم، پلاک ۴
+                                <span> آدرس : </span>تهران، کیلومتر ۱۸ جاده مخصوص کرج، خیابان ۶۳، کوچه دوم، پلاک ۴
                             </li>
-                            <li className="footer-address">پشتیبانی فروش : 02144981156 </li>
-                            <li className="footer-address">پست الکترونیک : info@poodiran.com</li>
+                            <li className="footer-address">
+                                <span>پشتیبانی فروش : </span> 02144981156
+                            </li>
+                            <li className="footer-address">
+                                <span>پست الکترونیک :</span> info@poodiran.com
+                            </li>
                         </ul>
                     </div>
                     <div className="footer-logo">
