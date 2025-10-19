@@ -1,5 +1,4 @@
 import React from "react";
-import NavbarBlue from "../NavbarBlue/NavbarBlue";
 import "./Header.css";
 import { Link } from "react-router-dom";
 // import { Swiper, SwiperSlide } from "swiper/react";
@@ -23,7 +22,6 @@ import { EffectFlip, Pagination, Navigation, Autoplay } from "swiper/modules";
 export default function Header() {
     return (
         <>
-            <NavbarBlue />
             <section className="section">
                 <Swiper
                     loop={true}

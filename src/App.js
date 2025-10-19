@@ -1,9 +1,20 @@
-import "./App.css";
+import React from "react";
 
-import Home from "./Pages/Home/Home";
+import "./App.css";
+import routes from "./routes";
+import NavbarBlue from "./Component/NavbarBlue/NavbarBlue";
+import Footer from "./Component/Footer/Footer";
+import { useRoutes } from "react-router-dom";
 
 function App() {
-    return <Home />;
+    let router = useRoutes(routes);
+    return (
+        <div className="container">
+            <NavbarBlue />
+            {router}
+            <Footer />
+        </div>
+    );
 }
 
 export default App;

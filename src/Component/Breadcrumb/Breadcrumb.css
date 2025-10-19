@@ -1,0 +1,21 @@
+.breadwrapper{
+    width: 100%;
+    background-color: var(--blue-glass);
+    border-radius: 3rem;
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: start;
+    margin-top: 15rem;
+    margin-bottom:5rem;
+    gap: 1rem;
+}
+.breaditem a{
+    color: var(--blue-main);
+    font-weight: 600;
+}
+.breaditem a:hover{
+    color: var(--blue-dark);
+}
+.breadarrow{
+    color: var(--blue-main);
+}

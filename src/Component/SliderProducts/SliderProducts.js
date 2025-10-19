@@ -32,11 +32,11 @@ export default function SliderProducts({ productsSample }) {
                 spaceBetween={10}
                 centeredSlides={false}
                 navigation={true}
-                autoplay={{
-                    delay: 2000,
-                    disableOnInteraction: false,
-                    pauseOnMouseEnter: true,
-                }}
+                // autoplay={{
+                //     delay: 2000,
+                //     disableOnInteraction: false,
+                //     pauseOnMouseEnter: true,
+                // }}
                 freeMode={{
                     enabled: true,
                     sticky: true,
@@ -61,10 +61,10 @@ export default function SliderProducts({ productsSample }) {
                     },
                 }}
                 modules={[FreeMode, Navigation, Pagination, Autoplay]}
-                className="mySwiper swiper-sliderProducts"
+                className=" swiper-sliderProducts"
             >
                 {products.map((item) => (
-                    <SwiperSlide className="img-sliderProduct">
+                    <SwiperSlide key={item.id} className="img-sliderProduct">
                         <CardProduct
                             nameCard={item.name}
                             srcCard={item.source}
@@ -72,6 +72,7 @@ export default function SliderProducts({ productsSample }) {
                             detailsCard={item.details}
                             btnModalGuide={handleShowModal}
                             offCard={item.off}
+                            idCard={item.id}
                         />
                     </SwiperSlide>
                 ))}

@@ -53,10 +53,12 @@ export default function NavbarBlue() {
                 {/* -Desktop-menu--------- */}
                 <ul className="menu">
                     <li className="menu-item ">
-                        <Link className="menu-item__active">صفحه اصلی</Link>
+                        <Link to={"./"} className="menu-item__active">
+                            صفحه اصلی
+                        </Link>
                     </li>
                     <li className="menu-item">
-                        <Link>فروشگاه</Link>
+                        <Link to={"./products"}>فروشگاه</Link>
                     </li>
                     <li className="menu-item"></li>
                     <li className="menu-item">
@@ -116,9 +118,9 @@ export default function NavbarBlue() {
                     </Link>
                 </div>
             </nav>
-            <Link className="nav-logo">
+            <Link to={"./"} className="nav-mylogo">
                 <img
-                    src="./images/logo.png"
+                    src="/images/logo.png"
                     alt=""
                     style={{ width: `${logoWidth}`, opacity: `${logoDisplay} `, top: `${logoTop}` }}
                 />

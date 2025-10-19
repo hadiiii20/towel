@@ -72,22 +72,29 @@
     font-size: 2rem;
     color:var(--white);
     opacity:0;
-    transition: all 0.4s ease-in-out;
+    transition: all 350ms ease-in-out;
+}
+a{
+    text-decoration: none;
 }
 .CardProduct-add-to-card span, .CardProduct-view-more span{
     font-size: 1.4rem;
     font-family: "mikhak";
     font-weight: 600;
     margin-right: 0.6rem;
-
+    color: var(--white);
+    transition: all 350ms ease-in-out;
 }
 .CardProduct-add-to-card{
     border-radius: 2rem 2rem 0 0;   
    
 }
+.CardProduct-add-to-card:hover span{
+    color: var(--blue-main);
+}
 .CardProduct-add-to-card:hover{
     background-color: var(--green-main);
-    color: var(--white);
+    color: var(--blue-main);
     transform: scale(0.95);
     cursor: pointer;
 }
@@ -97,9 +104,14 @@
 }
 .CardProduct-view-more:hover{
     background-color: var(--green-main);
-    color: var(--white);
     transform: scale(0.95);
     cursor: pointer;
+}
+.CardProduct-view-more svg{
+    transition: all 350ms ease-in-out;
+}
+.CardProduct-view-more:hover span,.CardProduct-view-more:hover{
+    color: var(--blue-main);
 }
 .CardProduct-img-wrapper:hover .CardProduct-view-more,.CardProduct-img-wrapper:hover .CardProduct-add-to-card{
     opacity: 1;
@@ -171,10 +183,10 @@
     align-items: center;
     gap: 0.4rem;
 }
-.help-size{
+.help-icon-size{
     cursor: pointer;
 }
-.help-size:hover{
+.help-icon-size:hover{
     color: var(--green-main);
 }
 .CardProduct-caption strong{

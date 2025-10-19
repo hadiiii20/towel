@@ -71,7 +71,7 @@
 
 
 /* swiper----------- */
-.swiper{
+.mySwiper{
     width: 34rem;
     margin-left:0 !important;
     margin-right:0 !important;
@@ -105,7 +105,7 @@
     .titleh5{
         font-size: 2.5rem;
     }
-    .swiper, .img-woman img, .img-men img{
+    .mySwiper, .img-woman img, .img-men img{
         width: 28rem;
     }
     
@@ -123,7 +123,7 @@
     .titleh5{
         font-size: 2rem;
     }
-    .swiper, .img-woman img, .img-men img{
+    .mySwiper, .img-woman img, .img-men img{
         width: 19rem;
     }
     .mybtn{
@@ -134,7 +134,7 @@
 }
 
 @media (max-width:768px) {
-    .swiper, .img-woman img, .img-men img{
+    .mySwiper, .img-woman img, .img-men img{
         width: 21rem;
     }
     .swiper-men{
@@ -181,48 +181,8 @@
         margin-top: 1rem;
         font-size: 1.3rem;
     }
-     .swiper, .img-woman img, .img-men img{
+     .mySwiper, .img-woman img, .img-men img{
         width: 17rem;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ////////////////////////////////// */
-/* .swiper {
-  width: 50rem;
-  height: 45rem;
-  text-align: left;
-  margin-left:0 !important;
-  margin-right:7rem !important;
-
-}
-
-.swiper-slide-shadow{
-    background: none !important;
-}
-.swiper-slide img{
-    filter: blur(3px) !important;
-    width: 170px;
-    height: 450px;
-}
-.swiper-slide-visible img{
-    filter:blur(0) !important;
-} */
-
 
