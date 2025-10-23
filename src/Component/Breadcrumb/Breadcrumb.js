@@ -1,7 +1,7 @@
 import React from "react";
 import "./Breadcrumb.css";
 import { Link } from "react-router-dom";
-export default function Breadcrumb() {
+export default function Breadcrumb({ nameGroup, nameProduct }) {
     return (
         <div className="breadwrapper">
             <div className="breaditem">
@@ -35,7 +35,7 @@ export default function Breadcrumb() {
                 </svg>
             </div>
             <div className="breaditem">
-                <Link>تنپوش بچگانه</Link>
+                <Link>{nameGroup}</Link>
             </div>
             <div className="breadarrow">
                 <svg
@@ -53,7 +53,7 @@ export default function Breadcrumb() {
                 </svg>
             </div>
             <div className="breaditem">
-                <Link>حوله تنپوش موش نسکافه ای</Link>
+                <Link>{nameProduct}</Link>
             </div>
         </div>
     );

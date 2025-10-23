@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./CardProduct.css";
 import { Link } from "react-router-dom";
+import { keys } from "@mui/system";
 
 export default function CardProduct({ srcCard, nameCard, detailsCard, typeCard, offCard, idCard, btnModalGuide }) {
     const [priceOff, setPriceOff] = useState();
@@ -171,28 +172,27 @@ export default function CardProduct({ srcCard, nameCard, detailsCard, typeCard, 
                             )) ||
                             (typeCard === "hand" && (
                                 <>
-                                    {detailsCard.map(
-                                        (item) =>
-                                            item.number > 0 && (
-                                                <>
-                                                    <input
-                                                        type="radio"
-                                                        className="sizeTowel-input"
-                                                        name={`size${nameCard}`}
-                                                        id={`size${item.size}${nameCard}`}
-                                                        hidden
-                                                        checked={item.size === sizeDefault && "checked"}
-                                                    />
-                                                    <label
-                                                        htmlFor={`size${item.size}${nameCard}`}
-                                                        className="sizeTowel"
-                                                        onClick={(e) => selectSize(e)}
-                                                    >
-                                                        {item.size}
-                                                    </label>
-                                                </>
-                                            )
-                                    )}
+                                    {detailsCard
+                                        .filter((item) => item.number > 0)
+                                        .map((item) => (
+                                            <React.Fragment key={item.id}>
+                                                <input
+                                                    type="radio"
+                                                    className="sizeTowel-input"
+                                                    name={`size${nameCard}`}
+                                                    id={`size${item.size}${nameCard}`}
+                                                    hidden
+                                                    checked={item.size === sizeDefault && "checked"}
+                                                />
+                                                <label
+                                                    htmlFor={`size${item.size}${nameCard}`}
+                                                    className="sizeTowel"
+                                                    onClick={(e) => selectSize(e)}
+                                                >
+                                                    {item.size}
+                                                </label>
+                                            </React.Fragment>
+                                        ))}
                                 </>
                             )) ||
                             (typeCard === "gym" && (

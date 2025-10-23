@@ -216,8 +216,9 @@
     }
     .btn-hamberger-menu-wrapper{
         display: flex;
+        margin-right: 3rem;
     }
-    .nav-logo img{
+    .nav-mylogo img{
         width: 6rem !important;
         top:0.9rem !important   ;
     }

@@ -9,7 +9,6 @@ import "./SliderProducts.css";
 import { FreeMode, Pagination, Navigation, Autoplay } from "swiper/modules";
 
 export default function SliderProducts({ productsSample }) {
-    const [products, setProducts] = useState(productsSample);
     const [isShowModal, setIsShowModal] = useState(false);
     const [type, setType] = useState();
 
@@ -63,7 +62,7 @@ export default function SliderProducts({ productsSample }) {
                 modules={[FreeMode, Navigation, Pagination, Autoplay]}
                 className=" swiper-sliderProducts"
             >
-                {products.map((item) => (
+                {productsSample.map((item) => (
                     <SwiperSlide key={item.id} className="img-sliderProduct">
                         <CardProduct
                             nameCard={item.name}

@@ -19,3 +19,11 @@
 .breadarrow{
     color: var(--blue-main);
 }
+
+
+@media (max-width:780px) {
+
+    .breaditem a{
+        font-size: 1.3rem;
+}
+}

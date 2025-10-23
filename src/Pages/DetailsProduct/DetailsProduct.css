@@ -251,16 +251,16 @@ input[type=number] {
   background-size: cover;
   background-position: center;
 }
-.mySwiper2 {
+.mySwiper2.swiper-details-product {
   max-height: 80%;
   max-width: 100%;
 }
-.mySwiper {
+.mySwiper.swiper-details-product-bottom {
   height: 20%;
   box-sizing: border-box;
   padding: 10px 0;
 }
-.mySwiper .swiper-slide {
+.mySwiper.swiper-details-product .swiper-slide {
   width: 25%;
   height: 100%;
   opacity: 0.4;
@@ -296,6 +296,177 @@ input[type=number] {
 .swiper-zoom-container img{
   border-radius: 3rem;
 }
+
+/* ---description-Prodcut--------------------------------------- */
+.tab-wrapper{
+  margin-top: 5rem;
+}
+.tab-title-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  font-family: "lalezar";
+  border-bottom: 3px solid var(--blue-dark);
+  height: 0.5rem;
+ 
+}
+
+.tab-title-label{
+  color: var(--blue-dark);
+  background-color: var(--white);
+  border: 3px solid var(--blue-dark);
+  padding: 1.5rem 2rem;
+  border-radius: 4rem;  
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 12rem;
+  height: 6rem;
+}
+.tab-title:hover,.tab-title-label:hover{
+  cursor: pointer;
+}
+.tab-title-input:checked+.tab-title-label {
+  color: var(--white);
+  background-color: var(--blue-dark);
+} 
+.tab-body-wrapper{
+  background-color: var(--blue-glass);
+ line-height: 3rem;
+ padding: 3rem 6rem;
+}
+.tab-body-feature{
+  text-align: justify;
+  color: var(--blue-dark);
+  transition: all 250ms ease-in-out;
+  opacity: 0;
+  height:0;
+  margin-top: 3rem;
+}
+.tab-body-feature span{
+  font-family: "mikhakBold";
+  margin-left: 1rem;
+  font-size: 1.8rem;
+  
+} 
+.tab-body-specification{
+  transition: all 250ms ease-in-out;
+  opacity: 0;
+  height: 0;
+}
+.product-table{
+    table-layout: auto;
+    width: 100%;
+    margin-top: 3rem;
+}
+.product-table-body:{
+
+}
+.product-table-tr{
+  border-bottom: 0.5px solid rgba(30, 30, 86, 0.196);
+}
+.product-table-td{
+  padding: 1.2rem;
+}
+
+.product-table-td:nth-child(1){
+  font-family: "mikhakBold";
+  font-size: 1.8rem;
+  color: var(--blue-dark);
+}
+.product-table-td:nth-child(2){
+  font-weight: 600;
+  color: var(--blue-main);
+}
+.tab-body-comment{
+  transition: all 250ms ease-in-out;
+  opacity: 0;
+  height: 0;
+}
+.write-comment-wrapper{
+  margin-top: 1rem;
+}
+.write-comment{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.write-comment textarea{
+  width: 33rem !important;
+  border-radius: 2rem;
+  padding: 2rem;
+  font-family: "mikhak";
+  border:3px solid var(--blue-main);
+  outline: none;
+  color: var(--blue-dark);
+}
+.write-comment-label,.rate-title{
+  font-family: "mikhakBold";
+  color: var(--blue-dark);
+}
+.write-comment a{
+  width: 10rem !important;
+  margin-right: 23rem;
+}
+
+.rate-stars{
+ 
+
+}
+.rate-title{
+
+}
+.publish-comment{
+  color: var(--blue-dark);
+  font-weight: 600;
+  font-size: 1.4;
+  margin-top: 2rem;
+  position: relative;
+}
+.publish-comment::after{
+  position: absolute;
+  content:"";
+  width:100%;
+  height: 1px;
+  background-color: var(--blue-glass);
+  margin-top: 1rem;
+}
+.name-user-comment{
+  font-family: "mikhakBold";
+  font-size: 1.8;
+  color: var(--blue-dark);
+}
+
+.comment-user{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 0.5rem ;
+  color: var(--blue-dark);
+}
+.publish-comment-wrapper{
+  margin-top: 5rem;
+
+}
+.publish-commnet-title{
+  font-family: "lalezar";
+  font-size: 2rem;
+}
+
+.date-commnet{
+  font-size: 1.3rem;
+  color: var(--blue);
+}
+
+
+
+
+
+
+
 
 
 /* /responsive------------- */
