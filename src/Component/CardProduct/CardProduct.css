@@ -199,39 +199,3 @@ a{
     align-items: center;
     gap: 5px;
 }
-.sizeTowel{
-    border: 2px solid var(--blue-main);
-    border-radius: 5px;
-    padding: 2px 5px;
-    color: var(--blue-main);
-    /* font-size: 1.4rem; */
-    font-weight: 600;
-    cursor: pointer;
-}
-.sizeTowel-input:checked +.sizeTowel{
-    background-color: var(--green-main);
-}
-
-
-
-/* 
-.CardProduct:nth-child(even){
-  background-color: var(--green-main) ;
-  border:8px solid var(--green-main)
-}
-.CardProduct:nth-child(even) .CardProduct-img-wrapper{
-  border-bottom-color: var(--green-main);
-}
-.CardProduct:nth-child(even) .CardProduct-info-wrapper{
-    border-top-color: var(--green-main);
-}
-.CardProduct:nth-child(even)  .CardProduct-title-wrapper{
-    border-top-color: var(--green-main) ;
-}
-.CardProduct:nth-child(even) .CardProduct-title{
-  color: var(--white) ;
-}
-.CardProduct:nth-child(even) .CardProduct-price{
-  color: var(--blue-main) ;
-
-} */

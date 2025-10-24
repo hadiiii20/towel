@@ -23,7 +23,7 @@
 .det-product-title{
   font-family: "lalezar";
   font-size:3rem;
-  color: var(--blue-main);
+  color: var(--blue-dark);
   display: flex;
   align-items: center;
   
@@ -65,7 +65,7 @@
   margin-top: 2rem;
   margin-right: 2rem;
 }
-.det-sizeTowel{
+.det-product-size-label-wrapper label{
     border: 3px solid var(--blue-dark);
     border-radius: 20px;
     padding: 6px 13px;
@@ -74,10 +74,10 @@
     font-weight: 600;
     cursor: pointer;
 }
-.det-sizeTowel-input:checked +.det-sizeTowel{
+.det-product-size-label-wrapper input:checked +.det-product-size-label-wrapper label{
     background-color: var(--green-main);
 }
-.det-sizeTowel-input{
+.det-product-size-label-wrapper input{
   display: none;
 }
 .det-price-wrapper{
@@ -95,20 +95,27 @@
 .det-price{
     font-family: "MikhakBold";
     color: var(--blue-dark);;
-    font-size: 3.2rem;
     position: relative;
     margin-top: 1.5rem;
     margin-right: 2rem;
 }
-.det-price.off{
+.det-price-main{
+  margin-right: 5rem;
+}
+.det-price-main.off{
     color: rgb(144, 164, 174);
     text-decoration: line-through;
     font-size: 1.6rem;
     margin-right: 0.5rem;
 }
-.det-price.off+.det-price-unit{
+.det-price-main.off+.det-price-unit{
     color: rgb(144, 164, 174);
-    margin-left: 1rem;
+}
+.det-price-main, .det-price-after-off{
+  font-size: 3.2rem;
+}
+.det-price-after-off{
+  margin-right: 2.5rem;
 }
 .det-price-unit{
     font-family: "Mikhak";
@@ -460,6 +467,7 @@ input[type=number] {
   font-size: 1.3rem;
   color: var(--blue);
 }
+
 
 
 

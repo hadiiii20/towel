@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import "./CardProduct.css";
 import { Link } from "react-router-dom";
 import { keys } from "@mui/system";
+import SizeTowel from "../SizeTowel/SizeTowel";
 
 export default function CardProduct({ srcCard, nameCard, detailsCard, typeCard, offCard, idCard, btnModalGuide }) {
     const [priceOff, setPriceOff] = useState();
-    const [priceOriginal, setPriceOriginal] = useState();
+    const [priceMain, setPriceMain] = useState();
     const [priceDefaultOff, setPriceDefaultOff] = useState();
     const [priceDefaultOriginal, setPriceDefaultOriginal] = useState();
     const [sizeDefault, setSizeDefault] = useState();
@@ -15,12 +16,12 @@ export default function CardProduct({ srcCard, nameCard, detailsCard, typeCard, 
         let size = e.target.innerText;
         detailsCard.forEach((item) => {
             if (item.size === size) {
-                let priceOriginal = Number(item.price).toLocaleString();
                 let convertNum = Number(item.price);
+                let priceMain = convertNum.toLocaleString();
                 offCard > 0 && (convertNum = (1 - offCard) * convertNum);
                 let priceCardOff = convertNum.toLocaleString();
                 setPriceOff(priceCardOff);
-                setPriceOriginal(priceOriginal);
+                setPriceMain(priceMain);
                 setSizeDefault(item.size);
             }
         });
@@ -29,13 +30,13 @@ export default function CardProduct({ srcCard, nameCard, detailsCard, typeCard, 
     useEffect(() => {
         const firstAvailable = detailsCard.find((pro) => pro.number > 0);
         if (firstAvailable) {
-            let priceOriginal = Number(firstAvailable.price).toLocaleString();
+            let priceMain = Number(firstAvailable.price).toLocaleString();
             let convertNum = Number(firstAvailable.price);
             offCard > 0 && (convertNum = (1 - offCard) * convertNum);
             let PriceDefaultOff = convertNum.toLocaleString();
 
             setPriceDefaultOff(PriceDefaultOff);
-            setPriceDefaultOriginal(priceOriginal);
+            setPriceDefaultOriginal(priceMain);
             setSizeDefault(firstAvailable.size);
         }
     }, []);
@@ -104,7 +105,7 @@ export default function CardProduct({ srcCard, nameCard, detailsCard, typeCard, 
                             <span
                                 className={`CardProduct-price ${offCard > 0 && (priceDefaultOff || priceOff) && "off"}`}
                             >
-                                {priceOriginal ? priceOriginal : priceDefaultOriginal}
+                                {priceMain ? priceMain : priceDefaultOriginal}
                             </span>
                             <span className="CardProduct-price-unit">تومان</span>
                             {offCard > 0 && (priceOff || priceDefaultOff) && (
@@ -118,135 +119,12 @@ export default function CardProduct({ srcCard, nameCard, detailsCard, typeCard, 
                         </div>
                     </div>
                     <div className="sizeTowel-wrapper">
-                        {(typeCard === "kids" && (
-                            <>
-                                {detailsCard.map(
-                                    (item) =>
-                                        item.number > 0 && (
-                                            <>
-                                                <input
-                                                    type="radio"
-                                                    className="sizeTowel-input"
-                                                    name={`size${nameCard}`}
-                                                    id={`size${item.size}${nameCard}`}
-                                                    hidden
-                                                    checked={item.size === sizeDefault && "checked"}
-                                                />
-                                                <label
-                                                    htmlFor={`size${item.size}${nameCard}`}
-                                                    className="sizeTowel"
-                                                    onClick={(e) => selectSize(e)}
-                                                >
-                                                    {item.size}
-                                                </label>
-                                            </>
-                                        )
-                                )}
-                            </>
-                        )) ||
-                            (typeCard === "adult" && (
-                                <>
-                                    {detailsCard.map(
-                                        (item) =>
-                                            item.number > 0 && (
-                                                <>
-                                                    <input
-                                                        type="radio"
-                                                        className="sizeTowel-input"
-                                                        name={`size${nameCard}`}
-                                                        id={`size${item.size}${nameCard}`}
-                                                        hidden
-                                                        checked={item.size === sizeDefault && "checked"}
-                                                    />
-                                                    <label
-                                                        htmlFor={`size${item.size}${nameCard}`}
-                                                        className="sizeTowel"
-                                                        onClick={(e) => selectSize(e)}
-                                                    >
-                                                        {item.size}
-                                                    </label>
-                                                </>
-                                            )
-                                    )}
-                                </>
-                            )) ||
-                            (typeCard === "hand" && (
-                                <>
-                                    {detailsCard
-                                        .filter((item) => item.number > 0)
-                                        .map((item) => (
-                                            <React.Fragment key={item.id}>
-                                                <input
-                                                    type="radio"
-                                                    className="sizeTowel-input"
-                                                    name={`size${nameCard}`}
-                                                    id={`size${item.size}${nameCard}`}
-                                                    hidden
-                                                    checked={item.size === sizeDefault && "checked"}
-                                                />
-                                                <label
-                                                    htmlFor={`size${item.size}${nameCard}`}
-                                                    className="sizeTowel"
-                                                    onClick={(e) => selectSize(e)}
-                                                >
-                                                    {item.size}
-                                                </label>
-                                            </React.Fragment>
-                                        ))}
-                                </>
-                            )) ||
-                            (typeCard === "gym" && (
-                                <>
-                                    {detailsCard.map(
-                                        (item) =>
-                                            item.number > 0 && (
-                                                <>
-                                                    <input
-                                                        type="radio"
-                                                        className="sizeTowel-input"
-                                                        name={`size${nameCard}`}
-                                                        id={`size${item.size}${nameCard}`}
-                                                        hidden
-                                                        checked={item.size === sizeDefault && "checked"}
-                                                    />
-                                                    <label
-                                                        htmlFor={`size${item.size}${nameCard}`}
-                                                        className="sizeTowel"
-                                                        onClick={(e) => selectSize(e)}
-                                                    >
-                                                        {item.size}
-                                                    </label>
-                                                </>
-                                            )
-                                    )}
-                                </>
-                            )) ||
-                            (typeCard === "bath" && (
-                                <>
-                                    {detailsCard.map(
-                                        (item) =>
-                                            item.number > 0 && (
-                                                <>
-                                                    <input
-                                                        type="radio"
-                                                        className="sizeTowel-input"
-                                                        name={`size${nameCard}`}
-                                                        id={`size${item.size}${nameCard}`}
-                                                        hidden
-                                                        checked={item.size === sizeDefault && "checked"}
-                                                    />
-                                                    <label
-                                                        htmlFor={`size${item.size}${nameCard}`}
-                                                        className="sizeTowel"
-                                                        onClick={(e) => selectSize(e)}
-                                                    >
-                                                        {item.size}
-                                                    </label>
-                                                </>
-                                            )
-                                    )}
-                                </>
-                            ))}
+                        <SizeTowel
+                            detailProduct={detailsCard}
+                            name={nameCard}
+                            sizeDefault={sizeDefault}
+                            hadlerSize={selectSize}
+                        />
                     </div>
                 </div>
             </div>

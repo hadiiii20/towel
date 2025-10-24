@@ -247,7 +247,7 @@ const productsNew = [
         id: 18,
         name: "حوله کلاسیک زرشکی",
         source: "/images/BestSallers/classic-red.jpg",
-        type: "adult-men",
+        type: "adult-man",
         details: [
             { size: "S", price: 2300000, number: 0 },
             { size: "M", price: 2600000, number: 1 },

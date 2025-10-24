@@ -1,0 +1,11 @@
+.sizeTowel{
+    border: 2px solid var(--blue-main);
+    border-radius: 5px;
+    padding: 2px 5px;
+    color: var(--blue-main);
+    font-weight: 600;
+    cursor: pointer;
+}
+.sizeTowel-input:checked +.sizeTowel{
+    background-color: var(--green-main);
+}

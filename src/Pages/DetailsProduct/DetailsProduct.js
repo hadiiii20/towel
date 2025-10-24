@@ -6,6 +6,8 @@ import productsNew from "../../productsNew";
 import Button from "../../Component/Button/Button";
 import Divider from "../../Component/Divider/Divider";
 import SliderProducts from "../../Component/SliderProducts/SliderProducts";
+import ModalSizeGuid from "../../Component/ModalSizeGuide/ModalSizeGuid";
+import SizeTowel from "../../Component/SizeTowel/SizeTowel";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -20,22 +22,72 @@ import { Zoom, FreeMode, Navigation, Thumbs } from "swiper/modules";
 
 export default function DetailsProduct() {
     let params = useParams();
-    const [productSelect, setProductSelect] = useState({});
+    // const [productSelect, setProductSelect] = useState({});
     const [nameType, setNameType] = useState("");
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [activeTab, setActiveTab] = useState("description");
     const [productValue, setProductValue] = useState(1);
     const [newProduct, setNewProduct] = useState([]);
+    const [isShowModal, setIsShowModal] = useState(false);
+
+    const [priceOff, setPriceOff] = useState();
+    const [priceMain, setPriceMain] = useState();
+    const [sizeDefault, setSizeDefault] = useState();
+    const [priceDefaultOff, setPriceDefaultOff] = useState();
+    const [priceDefaultOriginal, setPriceDefaultOriginal] = useState();
+
+    const productSelect = productsNew.find((item) => item.id === Number(params.id));
+
+    const selectSize = (e) => {
+        let size = e.target.innerText;
+        productSelect.details.forEach((item) => {
+            if (item.size === size) {
+                let convertNum = Number(item.price);
+                let priceMain = convertNum.toLocaleString();
+                productSelect.off > 0 && (convertNum = (1 - productSelect.off) * convertNum);
+                let priceCardOff = convertNum.toLocaleString();
+                setPriceOff(priceCardOff);
+                setPriceMain(priceMain);
+                setSizeDefault(item.size);
+            }
+        });
+
+        e.target.classList.add("selected__size");
+    };
+    useEffect(() => {
+        const firstAvailable = productSelect.details.find((pro) => pro.number > 0);
+        if (firstAvailable) {
+            let priceMain = Number(firstAvailable.price).toLocaleString();
+            let convertNum = Number(firstAvailable.price);
+            productSelect.off > 0 && (convertNum = (1 - productSelect.off) * convertNum);
+            let PriceDefaultOff = convertNum.toLocaleString();
+
+            setPriceDefaultOff(PriceDefaultOff);
+            setPriceDefaultOriginal(priceMain);
+            setSizeDefault(firstAvailable.size);
+        }
+    }, []);
+
+    const btnModalGuide = () => {
+        setIsShowModal(!isShowModal);
+    };
+    useEffect(() => {
+        window.onclick = (e) => {
+            if (e.target.classList.contains("modal-help-size")) {
+                btnModalGuide();
+            }
+        };
+    }, []);
 
     useEffect(() => {
         const productfilter = productsNew.filter((item) => item.type === "kids");
         if (productfilter.length > 0) {
             setNewProduct(productfilter);
         }
-        const product = productsNew.find((item) => item.id === Number(params.id));
-        setProductSelect(product);
-        console.log(product);
-    }, []);
+        // const product = productsNew.find((item) => item.id === Number(params.id));
+        // setProductSelect(product);
+        // console.log(product);
+    }, [params.id]);
     useEffect(() => {
         if (productSelect.type === "kids") {
             setNameType("تنپوش بچگانه");
@@ -133,43 +185,31 @@ export default function DetailsProduct() {
                     <div className="det-product-size-wrapper">
                         <div className="det-product-size">
                             انتخاب سایز :
-                            <span className="det-help-size">
-                                (
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="16"
-                                    height="16"
-                                    fill="currentColor"
-                                    className="bi bi-question-circle help-size"
-                                    viewBox="0 0 16 16"
-                                >
-                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                                    <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94" />
-                                </svg>
-                                راهنمای سایز حوله )
-                            </span>
+                            {(productSelect.type === "kids" || productSelect.type === "adult") && (
+                                <span className="det-help-size" onClick={btnModalGuide}>
+                                    (
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="16"
+                                        height="16"
+                                        fill="currentColor"
+                                        className="bi bi-question-circle help-size"
+                                        viewBox="0 0 16 16"
+                                    >
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                                        <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94" />
+                                    </svg>
+                                    راهنمای سایز حوله )
+                                </span>
+                            )}
                         </div>
                         <div className="det-product-size-label-wrapper">
-                            <input type="radio" className="det-sizeTowel-input" name="mosh" id="mosh" />
-                            <label htmlFor="mosh" className="det-sizeTowel">
-                                60
-                            </label>
-                            <input type="radio" className="det-sizeTowel-input" name="mosh" id="mosh1" checked />
-                            <label htmlFor="mosh1" className="det-sizeTowel">
-                                70
-                            </label>
-                            <input type="radio" className="det-sizeTowel-input" name="mosh" id="mosh2" />
-                            <label htmlFor="mosh2" className="det-sizeTowel">
-                                80
-                            </label>
-                            <input type="radio" className="det-sizeTowel-input" name="mosh" id="mosh3" />
-                            <label htmlFor="mosh3" className="det-sizeTowel">
-                                90
-                            </label>
-                            <input type="radio" className="det-sizeTowel-input" name="mosh" id="mosh4" />
-                            <label htmlFor="mosh4" className="det-sizeTowel">
-                                100
-                            </label>
+                            <SizeTowel
+                                detailProduct={productSelect.details}
+                                name={productSelect.name}
+                                sizeDefault={sizeDefault}
+                                hadlerSize={selectSize}
+                            />
                         </div>
                     </div>
                     <div className="det-price-wrapper">
@@ -177,10 +217,20 @@ export default function DetailsProduct() {
                             قیمت <span>براساس سایز </span>:
                         </h3>
                         <div className="det-price">
-                            <span className={"det-price off"}>1000000</span>
+                            <span
+                                className={`det-price-main ${
+                                    productSelect.off > 0 && (priceDefaultOff || priceOff) && "off"
+                                }`}
+                            >
+                                {priceMain ? priceMain : priceDefaultOriginal}
+                            </span>
                             <span className="det-price-unit">تومان</span>
-                            <span className="det-price-off">1500000</span>
-                            <span className="CardProduct-price-unit">تومان</span>
+                            {productSelect.off > 0 && (priceOff || priceDefaultOff) && (
+                                <>
+                                    <span className="det-price-after-off">{priceOff ? priceOff : priceDefaultOff}</span>
+                                    <span className="det-price-unit">تومان</span>
+                                </>
+                            )}
                         </div>
                     </div>
                     <div className="det-basket">
@@ -531,6 +581,15 @@ export default function DetailsProduct() {
                     <Divider name={"محصولات مشابه"} />
                     <SliderProducts productsSample={newProduct} />
                 </>
+            )}
+            {isShowModal && (
+                <div className={`modal-wrapper ${isShowModal ? "active" : ""}`}>
+                    {productSelect.type === "kids" ? (
+                        <ModalSizeGuid isActive={"active"} title="تنپوش بچگانه" imgSrc="/images/childSize.jpg" />
+                    ) : (
+                        <ModalSizeGuid isActive={"active"} title="تنپوش بزرگسال" imgSrc="/images/adultSize.jpg" />
+                    )}
+                </div>
             )}
         </>
     );

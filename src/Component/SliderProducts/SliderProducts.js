@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import CardProduct from "../CardProduct/CardProduct";
 import ModalSizeGuid from "../ModalSizeGuide/ModalSizeGuid";
@@ -16,12 +16,13 @@ export default function SliderProducts({ productsSample }) {
         setIsShowModal(!isShowModal);
         setType(typeCard);
     };
-
-    window.onclick = (e) => {
-        if (e.target.classList.contains("modal-help-size")) {
-            handleShowModal();
-        }
-    };
+    useEffect(() => {
+        window.onclick = (e) => {
+            if (e.target.classList.contains("modal-help-size")) {
+                handleShowModal();
+            }
+        };
+    });
 
     return (
         <>
