@@ -27,7 +27,6 @@ export default function DetailsProduct() {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [activeTab, setActiveTab] = useState("description");
     const [productValue, setProductValue] = useState(1);
-    const [newProduct, setNewProduct] = useState([]);
     const [isShowModal, setIsShowModal] = useState(false);
 
     const [priceOff, setPriceOff] = useState();
@@ -37,6 +36,8 @@ export default function DetailsProduct() {
     const [priceDefaultOriginal, setPriceDefaultOriginal] = useState();
 
     const productSelect = productsNew.find((item) => item.id === Number(params.id));
+
+    const productSlider = productsNew.filter((item) => item.type === productSelect.type);
 
     const selectSize = (e) => {
         let size = e.target.innerText;
@@ -77,17 +78,8 @@ export default function DetailsProduct() {
                 btnModalGuide();
             }
         };
-    }, []);
+    });
 
-    useEffect(() => {
-        const productfilter = productsNew.filter((item) => item.type === "kids");
-        if (productfilter.length > 0) {
-            setNewProduct(productfilter);
-        }
-        // const product = productsNew.find((item) => item.id === Number(params.id));
-        // setProductSelect(product);
-        // console.log(product);
-    }, [params.id]);
     useEffect(() => {
         if (productSelect.type === "kids") {
             setNameType("تنپوش بچگانه");
@@ -233,70 +225,71 @@ export default function DetailsProduct() {
                             )}
                         </div>
                     </div>
-                    <div className="det-basket">
-                        <div className="title-number">
-                            <h3>تعداد :</h3>
+                    <div className="title-number">
+                        <h3>تعداد :</h3>
+                    </div>
+
+                    <div class="input-number-wrapper">
+                        <div class="plus-parent">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="22"
+                                height="22"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="#000000"
+                                stroke-width="2.75"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon-up"
+                                onClick={() => setProductValue(productValue + 1)}
+                            >
+                                <path d="M12 5l0 14" />
+                                <path d="M5 12l14 0" />
+                            </svg>
                         </div>
-                        <div class="input-number-wrapper">
-                            <span class="">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="#000000"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="icon-up"
-                                    onClick={() => setProductValue(productValue + 1)}
-                                >
-                                    <path d="M6 15l6 -6l6 6" />
-                                </svg>
-                            </span>
-                            <div class="input-number-parent">
-                                <input
-                                    class="input-number"
-                                    value={productValue}
-                                    type="number"
-                                    name="numver-product"
-                                    id="number-prouduct"
-                                />
-                            </div>
-                            <span class="">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="#000000"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="icon-down"
-                                    onClick={() => productValue > 1 && setProductValue(productValue - 1)}
-                                >
-                                    <path d="M6 9l6 6l6 -6" />
-                                </svg>
-                            </span>
+
+                        <div class="input-number-parent">
+                            <input
+                                class="input-number"
+                                value={productValue}
+                                type="number"
+                                name="numver-product"
+                                id="number-prouduct"
+                            />
                         </div>
-                        <div className="product-basket">
-                            <button className="btn-product-basket">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="20"
-                                    height="20"
-                                    fill="currentColor"
-                                    className="bi bi-basket-fill"
-                                    viewBox="0 0 16 16"
-                                >
-                                    <path d="M5.071 1.243a.5.5 0 0 1 .858.514L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 6h1.717zM3.5 10.5a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0z" />
-                                </svg>
-                                افزودن به سبد خرید
-                            </button>
+                        <div class="minus-parent">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="22"
+                                height="22"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="#000000"
+                                stroke-width="2.75"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon-down"
+                                onClick={() => productValue > 1 && setProductValue(productValue - 1)}
+                            >
+                                <path d="M5 12l14 0" />
+                            </svg>
                         </div>
+                    </div>
+                    <div className="product-basket">
+                        <button className="btn-product-basket">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="20"
+                                height="20"
+                                fill="currentColor"
+                                className="bi bi-basket-fill"
+                                viewBox="0 0 16 16"
+                            >
+                                <path d="M5.071 1.243a.5.5 0 0 1 .858.514L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 6h1.717zM3.5 10.5a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0z" />
+                            </svg>
+                            افزودن به سبد خرید
+                        </button>
                     </div>
                 </div>
                 <div className="option-product-wrapper">
@@ -576,10 +569,10 @@ export default function DetailsProduct() {
                     </div>
                 </div>
             </div>
-            {newProduct.length > 0 && (
+            {productSlider.length > 0 && (
                 <>
                     <Divider name={"محصولات مشابه"} />
-                    <SliderProducts productsSample={newProduct} />
+                    <SliderProducts productsSample={productSlider} />
                 </>
             )}
             {isShowModal && (

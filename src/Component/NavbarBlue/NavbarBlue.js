@@ -53,12 +53,12 @@ export default function NavbarBlue() {
                 {/* -Desktop-menu--------- */}
                 <ul className="menu">
                     <li className="menu-item ">
-                        <Link to={"./"} className="menu-item__active">
+                        <Link to={"/"} className="menu-item__active">
                             صفحه اصلی
                         </Link>
                     </li>
                     <li className="menu-item">
-                        <Link to={"./products"}>فروشگاه</Link>
+                        <Link to={"/products"}>فروشگاه</Link>
                     </li>
                     <li className="menu-item"></li>
                     <li className="menu-item">

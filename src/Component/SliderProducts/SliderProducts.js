@@ -70,9 +70,9 @@ export default function SliderProducts({ productsSample }) {
                             srcCard={item.source}
                             typeCard={item.type}
                             detailsCard={item.details}
-                            btnModalGuide={handleShowModal}
                             offCard={item.off}
                             idCard={item.id}
+                            btnModalGuide={handleShowModal}
                         />
                     </SwiperSlide>
                 ))}

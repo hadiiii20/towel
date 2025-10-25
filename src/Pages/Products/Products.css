@@ -1,0 +1,28 @@
+.all-product-wrapper{
+    display: grid;
+    grid-template:auto/1fr 3fr;
+    gap:3rem;
+}
+.filter-proudct-wrapper{
+    background-color: var(--blue-glass);
+    width: 100%;
+    height: 50rem;
+    border-radius: 3rem;
+    position: sticky;
+    top: 10rem;
+
+}
+.table-product-wrapper{
+    display: grid;
+    grid-template: auto/ 1fr 1fr 1fr;
+    /* justify-self: center; */
+    gap: 2rem;
+
+}
+.product-item{
+    /* width: 25rem; */
+    justify-self: center;
+}
+.product-item .CardProduct{
+    width: 100%;
+}
