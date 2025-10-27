@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Breadcrumb from "../../Component/Breadcrumb/Breadcrumb";
 import Rating from "@mui/material/Rating";
-import productsNew from "../../productsNew";
+import productsNew from "../../productsDatabase";
 import Button from "../../Component/Button/Button";
 import Divider from "../../Component/Divider/Divider";
 import SliderProducts from "../../Component/SliderProducts/SliderProducts";
@@ -23,7 +23,6 @@ import { Zoom, FreeMode, Navigation, Thumbs } from "swiper/modules";
 export default function DetailsProduct() {
     let params = useParams();
     // const [productSelect, setProductSelect] = useState({});
-    const [nameType, setNameType] = useState("");
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [activeTab, setActiveTab] = useState("description");
     const [productValue, setProductValue] = useState(1);
@@ -80,27 +79,9 @@ export default function DetailsProduct() {
         };
     });
 
-    useEffect(() => {
-        if (productSelect.type === "kids") {
-            setNameType("تنپوش بچگانه");
-        } else if (productSelect.type === "adult-man") {
-            setNameType("تنپوش مردانه");
-        } else if (productSelect.type === "adult-woman") {
-            setNameType("تنپوش زنانه");
-        } else if (productSelect.type === "adult") {
-            setNameType("تنپوش بزرگسال");
-        } else if (productSelect.type === "gym") {
-            setNameType("حوله استخری");
-        } else if (productSelect.type === "bath") {
-            setNameType("حوله حمامی");
-        } else if (productSelect.type === "hand") {
-            setNameType("حوله دستی");
-        }
-    }, [productSelect]);
-
     return (
         <>
-            <Breadcrumb nameGroup={nameType} nameProduct={productSelect.name} />
+            <Breadcrumb nameGroup={productSelect.type} nameProduct={productSelect.name} />
             <div className="section-main-product-details">
                 <div className="img-product-wrapper">
                     <Swiper
@@ -177,7 +158,9 @@ export default function DetailsProduct() {
                     <div className="det-product-size-wrapper">
                         <div className="det-product-size">
                             انتخاب سایز :
-                            {(productSelect.type === "kids" || productSelect.type === "adult") && (
+                            {(productSelect.type === "حوله تنپوش کودک" ||
+                                productSelect.type === "حوله تنپوش زنانه" ||
+                                productSelect.type === "حوله تنپوش مردانه") && (
                                 <span className="det-help-size" onClick={btnModalGuide}>
                                     (
                                     <svg
@@ -577,7 +560,7 @@ export default function DetailsProduct() {
             )}
             {isShowModal && (
                 <div className={`modal-wrapper ${isShowModal ? "active" : ""}`}>
-                    {productSelect.type === "kids" ? (
+                    {productSelect.type === "حوله تنپوش کودک" ? (
                         <ModalSizeGuid isActive={"active"} title="تنپوش بچگانه" imgSrc="/images/childSize.jpg" />
                     ) : (
                         <ModalSizeGuid isActive={"active"} title="تنپوش بزرگسال" imgSrc="/images/adultSize.jpg" />

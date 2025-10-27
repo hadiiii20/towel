@@ -62,7 +62,7 @@ export default function CardProduct({ srcCard, nameCard, detailsCard, typeCard, 
                             </svg>
                             <span>سبد خرید</span>
                         </div>
-                        <Link to={`./products/${idCard}`}>
+                        <Link to={`/products/${idCard}`}>
                             <div className="CardProduct-view-more">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +86,9 @@ export default function CardProduct({ srcCard, nameCard, detailsCard, typeCard, 
                     <div className="price-wrapper">
                         <p className="CardProduct-caption">
                             <strong>قیمت</strong> بر اساس سایز :
-                            {(typeCard === "kids" || typeCard === "adult") && (
+                            {(typeCard === "حوله تنپوش کودک" ||
+                                typeCard === "حوله تنپوش زنانه" ||
+                                typeCard === "حوله تنپوش مردانه") && (
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="16"

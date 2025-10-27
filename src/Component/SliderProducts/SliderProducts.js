@@ -79,10 +79,10 @@ export default function SliderProducts({ productsSample }) {
             </Swiper>
             {isShowModal && (
                 <div className={`modal-wrapper ${isShowModal ? "active" : ""}`}>
-                    {type === "kids" ? (
-                        <ModalSizeGuid isActive={"active"} title="تنپوش بچگانه" imgSrc="./images/childSize.jpg" />
+                    {type === "حوله تنپوش کودک" ? (
+                        <ModalSizeGuid isActive={"active"} title="تنپوش بچگانه" imgSrc="/images/childSize.jpg" />
                     ) : (
-                        <ModalSizeGuid isActive={"active"} title="تنپوش بزرگسال" imgSrc="./images/adultSize.jpg" />
+                        <ModalSizeGuid isActive={"active"} title="تنپوش بزرگسال" imgSrc="/images/adultSize.jpg" />
                     )}
                 </div>
             )}
