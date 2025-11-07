@@ -1,25 +1,98 @@
 .img-productpage-wrapper{
     margin-bottom: 2rem;
-    padding-right: 0.5rem;
 }
 .img-productpage-wrapper img{
     border-radius: 3.5rem;
+    width: 100%;
 }
 .table-product-wrapper{
     
     
 }
 
-.filter-proudct-wrapper{
-    /* width: 100%; */
-    height: 6rem;
-    margin-bottom: 2rem;
+.filter-product-wrapper{
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
     border-bottom: 1px solid var(--blue-glass);
-    display: flex;
+    display: grid;
+    grid-template:auto/1fr;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
 
 }
+.button-filter-wrapper{
+    /* height: 5rem; */
+    display: grid;
+    grid-template: 1fr /3fr 3fr 2fr 2fr;
+    gap: 2rem;
+}
+.after-filter-wrapper{
+    display: grid;
+    grid-template: 1fr /3fr 3fr 3fr 3fr 2fr;
+    gap: 2rem;
+
+}
+.after-filter-item{
+    display: block;
+    font-size: 1.2rem;
+    /* border-bottom: 2px solid var(--green-main); */
+    color: var(--blue-main);
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    position: relative; 
+    font-weight: 600;
+}
+.after-filter-item-hidden{
+    display: none;
+}
+.after-filter-item::after{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 25px;
+    bottom: 0;
+    z-index: -1;
+    border-radius: 0 0 20px 20px;
+    background: linear-gradient(to top, var(--green-main), #f9d52300);
+}
+.after-filter-item svg{
+    stroke:var(--blue-dark);
+    margin-left: 0.3rem;
+}
+.after-filter-item-color{
+    width: 20%;
+    height: 100%;
+    margin-right: 5px;
+    /* margin-bottom: 10px; */
+    border: 1px solid var(--blue-dark);
+    border-radius: 10px;
+}
+.after-filter-item-btn{
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 3rem;
+    background-color: var(--green-main);
+    border: 2px solid var(--green-main);
+    color: var(--blue-dark);
+    padding: 0.5rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 150ms ease-in-out;
+    cursor: pointer;
+    width: 15rem;
+    justify-self: center;
+}
+.after-filter-item-btn:hover{
+    border: 2px solid var(--blue-main);
+
+}
+.after-filter-item-btn-hidden{
+    display: none;
+}
+
 .all-product-wrapper{
     display: grid;
     grid-template: auto/ 1fr 1fr 1fr 1fr;
@@ -34,3 +107,76 @@
 .product-item .CardProduct{
     width: 95%;
 }
+.emptyProduct{
+    width: 100vw;
+    height: 15rem;
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    margin-right: -4rem;
+}
+.emptyProduct h3{
+    font-family: "Lalezar";
+    font-size: 4rem;
+    color: var(--blue-main);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+/* /responsive------------- */
+
+@media (max-width:1400px) {
+   
+}
+
+@media (max-width:1210px) {
+    .CardProduct-title {
+        font-size: 1.4rem;
+    }
+   
+}
+
+@media (max-width:1050px) {
+    .all-product-wrapper {
+    grid-template: auto / 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width:768px) {
+    .all-product-wrapper {
+        grid-template: auto / 1fr 1fr;
+    }
+  
+    .button-filter-wrapper{
+        grid-template: auto /1fr 1fr;
+    }
+    .after-filter-wrapper{
+        display: grid;
+        grid-template: auto/1fr 1fr ;
+        gap: 2rem;
+
+    }
+}
+
+@media (max-width:576px) {
+    .all-product-wrapper {
+        grid-template: auto / 1fr ;
+    }
+  
+    .button-filter-wrapper{
+        grid-template: auto /1fr ;
+    }
+    .after-filter-wrapper{
+        display: grid;
+        grid-template: auto/1fr ;
+        gap: 2rem;
+
+    }
+
+   
+}
+

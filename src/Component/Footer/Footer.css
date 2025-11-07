@@ -166,6 +166,12 @@
 }
 
 @media (max-width:576px) {
+    .footer-item:first-child{
+        font-size: 1.9rem;
+    }
+    .footer-address:first-child{
+        font-size: 2.1rem;
+    } 
 
 }
 

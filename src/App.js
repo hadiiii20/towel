@@ -9,7 +9,7 @@ import { useRoutes } from "react-router-dom";
 function App() {
     let router = useRoutes(routes);
     return (
-        <div className="container">
+        <div className="container custom-scroll-main">
             <NavbarBlue />
             {router}
             <Footer />

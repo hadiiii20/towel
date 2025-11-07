@@ -1,0 +1,190 @@
+.form-wrapper{
+    /* max-width: 120rem; */
+    height: 50rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 18rem;
+}
+
+.form-title{
+    width: 20rem;
+    height: 6rem;
+    border:0.5rem solid var(--blue-main);
+    border-radius: 3.5rem;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 35px 0 25px;
+    transition: all 500ms ease-in-out;
+
+}
+.btn-toggle{
+    width: 8rem;
+    height: 4rem;
+    background-color: var(--blue-main);
+    border-radius: 3.5rem;
+    position: absolute;
+    z-index: 1;
+    right: 10px;
+    transition: all 500ms ease-in-out;
+    cursor: pointer;    
+}
+.btn-toggle.register{
+    right: 102px;
+    background-color: var(--green-main);
+}
+.form-title:has(.btn-toggle.register){
+    border:0.5rem solid var(--green-main);
+    /* box-shadow: 0 0 6px 0px var(--green-main) inset, 0 0 9px 8px #dbe81f61 inset; */
+}
+.btn-toggle.register+.btn-login-wrapper {
+    color: var(--blue-main);
+}
+.btn-login-wrapper,.btn-register-wrapper{
+   font-family: "mikhakBold";
+   font-size: 1.6rem;
+   z-index: 1;
+}
+.btn-login-wrapper{
+    color: var(--green-main);
+    cursor: pointer;
+    transition: all 500ms ease-in-out;
+}
+.btn-register-wrapper{
+    color: var(--blue-main);
+    cursor: pointer;
+}
+/* -----form Body------------------- */
+.myform{
+    width: 35rem;
+    position: relative;
+}
+.circle-one,.circle-two,.circle-three{  
+    border-radius: 50%;
+    position: absolute;
+    background-color: var(--green-main);
+}
+.circle-one.register, .circle-two.register, .circle-three.register{
+    background-color: var(--blue-main);
+}
+.circle-one{
+    width:2rem;
+    height: 2rem;
+    left: 2rem;
+    top: 3rem;
+}
+.circle-two{
+    width:3.5rem;
+    height: 3.5rem;
+    left: 3rem;
+    top: -1rem;
+}
+.circle-three{
+    width:5rem;
+    height: 5rem;
+    left: -1.5rem;
+    top: -5rem;
+}
+.form-login{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:1rem;
+    box-shadow: 0 8px 20px 0 var(--blue-main);
+    padding: 3rem 3.5rem;
+    border-radius: 6rem;
+    transition: all 500ms ease-in-out;
+}
+.form-login.register{
+    box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.297), 0 8px 23px 2px var(--green-main);
+
+}
+.form-login.register .btn-submit-login{
+    background-color: var(--green-main);
+    color: var(--blue-main);
+}
+.form-login.register .wrapper-input .input-login{
+        box-shadow:0 2px 8px 0 rgba(0, 0, 0, 0.297), 0 4px 10px var(--green-main);
+
+}
+.wrapper-input{
+    display: flex;
+    flex-direction: column;
+    margin: 1.8rem 1rem;
+    position: relative;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    width: 100%;
+
+}
+.label-login{
+    margin-bottom: 1rem;
+    margin-right: 1.5rem;
+    position: absolute;
+    font-family: "mikhakBold";
+    top: 1.4rem;
+    /* color: var(--blue-main); */
+    color: var(--blue-main);
+    transition: all 300ms ease-in-out;
+}
+.label-login.click{
+    top: -2.4rem;
+    color: var(--blue-main);
+    margin-right: 1rem;
+    font-size: 1.6rem;
+}
+.input-login{
+    height: 4.5rem;
+    border-radius: 2rem;
+    /* background: var(--blue-main); */
+    /* border: 5px solid var(--blue-main) !important; */
+    color: var(--blue-dark);
+    /* color: var(--white); */
+    font-family: "mikhak";
+    font-weight: 600;
+    box-shadow: 0 4px 10px var(--blue-main);
+    /* border: 1px solid var(--blue-dark); */
+    border: none;
+    outline: none;
+    padding: 0 1.5rem;
+    transition: all 300ms ease-in-out;
+}
+.input-login-pass[type="password"]{
+    font-size: 2.3rem;
+}
+.eyepassword{
+    position: absolute;
+    left: 1.5rem;
+    top:1.4rem;
+    color:var(--blue-main);
+    cursor: pointer;
+}
+.eyepassword-none{
+    display: none;
+}
+.btn-submit-login{
+    height: 4rem;
+    border-radius:2rem;
+    background-color: var(--blue-main);
+    color: var(--green-main);
+    font-family: "mikhakBold";
+    font-size: 1.6rem;
+    padding:0.5rem 3rem;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-submit-login svg{
+    transition: all 300ms ease-in-out;
+}
+.btn-submit-login:hover svg{
+    transform: translateX(-6px);
+}

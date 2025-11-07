@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./ButtonFilter.css";
 
-export default function ButtonFilter({ nameButton, itemFilter, handlerSelect }) {
+export default function ButtonFilter({ nameButton, itemFilter, handlerSelect, nameDefult }) {
     const [isOpen, setIsOpen] = useState(false);
     const closeMenuFilter = useRef(null);
 
@@ -12,18 +12,19 @@ export default function ButtonFilter({ nameButton, itemFilter, handlerSelect }) 
     };
     const funSelect = (item) => {
         handlerSelect(item);
+        setIsOpen(false);
     };
 
     useEffect(() => {
-        document.addEventListener("mousedown", handleClickOutside);
+        document.addEventListener("click", handleClickOutside);
         return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener("click", handleClickOutside);
         };
     }, []);
 
     return (
-        <div className="button-filter-wrapper" ref={closeMenuFilter}>
-            <div class="button-filter" onClick={() => setIsOpen((prev) => !prev)}>
+        <div className="button-filter-parent" ref={closeMenuFilter}>
+            <div className="button-filter" onClick={() => setIsOpen((prev) => !prev)}>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -42,7 +43,7 @@ export default function ButtonFilter({ nameButton, itemFilter, handlerSelect }) 
                 <div>{nameButton}</div>
             </div>
             <div
-                class="menu-filter-wrapper custom-scroll"
+                className="menu-filter-wrapper custom-scroll"
                 style={{
                     visibility: isOpen ? "visible" : "hidden",
                     transform: isOpen ? "translateY(0.5rem)" : "translateY(0rem)",
@@ -55,13 +56,9 @@ export default function ButtonFilter({ nameButton, itemFilter, handlerSelect }) 
                         {itemFilter.map((item) => (
                             <div className="menu-filter-link" key={item}>
                                 <li
-                                    className="menu-filter-item"
+                                    className="menu-filter-item color"
                                     style={{
                                         backgroundColor: `${item}`,
-                                        marginRight: "15px",
-                                        marginBottom: "10px",
-                                        border: "2px solid var(--blue-dark) ",
-                                        borderRadius: "6px",
                                     }}
                                     onClick={() => funSelect(item)}
                                 ></li>
@@ -73,7 +70,8 @@ export default function ButtonFilter({ nameButton, itemFilter, handlerSelect }) 
                         {itemFilter.map((item) => (
                             <div className="menu-filter-link" key={item}>
                                 <li className="menu-filter-item" onClick={() => funSelect(item)}>
-                                    {item}{" "}
+                                    {nameDefult}&nbsp;&nbsp;
+                                    {item}
                                 </li>
                             </div>
                         ))}

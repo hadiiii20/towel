@@ -55,6 +55,61 @@
     gap: 2rem;
     font-size: 0rem;
     align-items: center;
+   
+}
+.login-wrapper{
+    position: relative;
+}
+.login-icon{
+
+}
+.login-menu-blue{
+    background: rgba(0, 150, 213, 0.3);
+    border-radius: 16px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(1, 87, 155, 0.2);
+    border-radius: 2rem 2rem 2rem 2rem ;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 1.2rem;
+    box-shadow: 0px 0px 6px 0px var(--blue-dark);
+    top:3.5rem;
+    position: absolute;
+    right: -8rem;
+    width: 10rem;
+    height: 0;
+    opacity: 0;
+    transition: all 200ms ease-in-out;
+}
+.login-menu-blue.open{
+    height: 12rem;
+    opacity: 1;
+}
+.first-login, .sign-up-menu{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    color: var(--blue-dark);
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+.first-login svg, .sign-up-menu svg{
+    stroke: var(--blue-dark);
+}
+.first-login:hover, .sign-up-menu:hover{
+    color: var(--white);
+} 
+.first-login{
+   
+}
+.sign-up-menu{
+    
 }
 
 .login-icon svg{

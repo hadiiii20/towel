@@ -98,3 +98,23 @@ body{
     margin-right: auto;
     margin-left: auto;
 }
+
+/* Add this to your global CSS or inside a styled component */
+body::-webkit-scrollbar {
+  width: 12px;  
+}
+
+body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--green-main);
+  border-radius: 6px;
+  /* border: 2px solid var(--blue-main); */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  /* background: var(--blue-main); */
+  border: 1px solid var(--blue-main);
+}
