@@ -40,9 +40,9 @@ const productsNew = [
         type: "حوله تنپوش کودک",
         details: [
             { size: "60", price: 1150000, number: 1 },
-            { size: "70", price: 1300000, number: 1 },
+            { size: "70", price: 1300000, number: 10 },
             { size: "80", price: 1500000, number: 1 },
-            { size: "90", price: 1600000, number: 1 },
+            { size: "90", price: 1600000, number: 5 },
             { size: "100", price: 1880000, number: 1 },
         ],
         date: 1,
@@ -58,8 +58,8 @@ const productsNew = [
         details: [
             { size: "S", price: 2300000, number: 0 },
             { size: "M", price: 2600000, number: 1 },
-            { size: "L", price: 2890000, number: 1 },
-            { size: "XL", price: 3150000, number: 1 },
+            { size: "L", price: 2890000, number: 2 },
+            { size: "XL", price: 3150000, number: 3 },
             { size: "XXL", price: 33800000, number: 0 },
         ],
         date: 1,
@@ -98,7 +98,7 @@ const productsNew = [
     },
     {
         id: 7,
-        name: "حوله استخری مردعنکبوتی",
+        name: "حوله استخری عنکبوتی",
         source: "/images/Card-img/spiderman-gym.jpg",
         type: "حوله استخری",
         details: [{ size: "75x135", price: 880000, number: 2 }],
@@ -293,7 +293,7 @@ const productsNew = [
         id: 20,
         name: "حوله کفشدوزک",
         source: "/images/BestSallers/kafhduzak-red.jpg",
-        type: "حوله استخری",
+        type: "حوله تنپوش زنانه",
         details: [
             { size: "S", price: 2300000, number: 1 },
             { size: "M", price: 2600000, number: 1 },
@@ -321,7 +321,7 @@ const productsNew = [
         date: 2,
         sale: 14,
         off: 0,
-        color: "#EAE0C8",
+        color: "#967259",
     },
     {
         id: 22,
@@ -411,7 +411,7 @@ const productsNew = [
         date: 2,
         sale: 9,
         off: 0.1,
-        color: "#111184",
+        color: "#1976D2",
     },
     {
         id: 28,
@@ -445,7 +445,7 @@ const productsNew = [
         date: 2,
         sale: 14,
         off: 0,
-        color: "#1976D2",
+        color: "#4DD0E1",
     },
     {
         id: 30,

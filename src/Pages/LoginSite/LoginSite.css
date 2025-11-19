@@ -113,62 +113,7 @@
         box-shadow:0 2px 8px 0 rgba(0, 0, 0, 0.297), 0 4px 10px var(--green-main);
 
 }
-.wrapper-input{
-    display: flex;
-    flex-direction: column;
-    margin: 1.8rem 1rem;
-    position: relative;
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-top: 2rem;
-    width: 100%;
-
-}
-.label-login{
-    margin-bottom: 1rem;
-    margin-right: 1.5rem;
-    position: absolute;
-    font-family: "mikhakBold";
-    top: 1.4rem;
-    /* color: var(--blue-main); */
-    color: var(--blue-main);
-    transition: all 300ms ease-in-out;
-}
-.label-login.click{
-    top: -2.4rem;
-    color: var(--blue-main);
-    margin-right: 1rem;
-    font-size: 1.6rem;
-}
-.input-login{
-    height: 4.5rem;
-    border-radius: 2rem;
-    /* background: var(--blue-main); */
-    /* border: 5px solid var(--blue-main) !important; */
-    color: var(--blue-dark);
-    /* color: var(--white); */
-    font-family: "mikhak";
-    font-weight: 600;
-    box-shadow: 0 4px 10px var(--blue-main);
-    /* border: 1px solid var(--blue-dark); */
-    border: none;
-    outline: none;
-    padding: 0 1.5rem;
-    transition: all 300ms ease-in-out;
-}
-.input-login-pass[type="password"]{
-    font-size: 2.3rem;
-}
-.eyepassword{
-    position: absolute;
-    left: 1.5rem;
-    top:1.4rem;
-    color:var(--blue-main);
-    cursor: pointer;
-}
-.eyepassword-none{
-    display: none;
-}
+/* //////////////////////////////////////// */
 .btn-submit-login{
     height: 4rem;
     border-radius:2rem;

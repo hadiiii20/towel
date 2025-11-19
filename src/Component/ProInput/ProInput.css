@@ -1,0 +1,51 @@
+.wrapper-input{
+    display: flex;
+    flex-direction: column;
+    margin: 1.8rem 1rem;
+    position: relative;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    width: 100%;
+
+}
+.label-login{
+    margin-bottom: 1rem;
+    margin-right: 1.5rem;
+    position: absolute;
+    font-family: "mikhakBold";
+    top: 1.4rem;
+    color: var(--blue-main);
+    transition: all 300ms ease-in-out;
+}
+.label-login.click{
+    top: -2.4rem;
+    color: var(--blue-main);
+    margin-right: 1rem;
+    font-size: 1.6rem;
+}
+.input-login{
+    height: 4.5rem;
+    border-radius: 2rem;
+    color: var(--blue-dark);
+    font-family: "mikhak";
+    font-weight: 600;
+    box-shadow: 0 4px 10px var(--blue-main);
+    border: none;
+    outline: none;
+    padding: 0 1.5rem;
+    transition: all 300ms ease-in-out;
+}
+.input-login-pass[type="password"]{
+    font-size: 2.3rem;
+}
+.eyepassword{
+    position: absolute;
+    left: 1.5rem;
+    top:1.4rem;
+    color:var(--blue-main);
+    cursor: pointer;
+}
+.eyepassword-none{
+    display: none;
+}

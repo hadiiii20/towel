@@ -1,0 +1,9 @@
+.total-off{
+    border-radius: 7px;
+    width: 55%;
+    height: 2.5rem;
+    color: var(--blue-main);
+    border:2px solid var(--blue-glass);
+    outline: none;
+    padding: 0 1rem;
+}

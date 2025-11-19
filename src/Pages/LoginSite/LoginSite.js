@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./LoginSite.css";
 import { Link } from "react-router-dom";
+import ProInput from "../../Component/ProInput/ProInput";
 
 export default function LoginSite() {
     const [clickInputMobile, setClickInputMobile] = useState(false);
@@ -8,6 +9,7 @@ export default function LoginSite() {
     const [clickInpuName, setClickInputName] = useState(false);
     const [toggleEye, setToggleEye] = useState(false);
     const [toggleBtn, setToggleBtn] = useState("btn-toggle");
+    const inputNameRef = useRef();
     const inputRef = useRef();
     const passRef = useRef();
     const nameRef = useRef();
@@ -17,13 +19,13 @@ export default function LoginSite() {
             if (inputRef.current && !inputRef.current.contains(e.target)) {
                 setClickInputMobile(false);
             }
+
             if (passRef.current && !passRef.current.contains(e.target)) {
                 setClickPassword(false);
             }
             if (nameRef.current && !nameRef.current.contains(e.target)) {
                 setClickInputName(false);
             }
-            inputRef.current && inputRef.current.value !== "" && setClickInputMobile(true);
             passRef.current && passRef.current.value !== "" && setClickPassword(true);
             nameRef.current && nameRef.current.value !== "" && setClickInputName(true);
         };
@@ -31,9 +33,7 @@ export default function LoginSite() {
     const eyeHandler = () => {
         setToggleEye((prev) => !prev);
     };
-    // const toggleBtnHandler = () => {
-    //     setToggleBtn((prev) => !prev);
-    // };
+
     return (
         <div>
             <div className="form-wrapper">
@@ -132,6 +132,24 @@ export default function LoginSite() {
                         </div>
                     ) : (
                         <div className="form-login register">
+                            {/* <div className="wrapper-input">
+                                <label for="name" className={clickInpuName ? "label-login click" : "label-login"}>
+                                    نام ونام خانوادگی
+                                </label>
+                                <input
+                                    ref={nameRef}
+                                    type="rext"
+                                    id="name"
+                                    class="input-login"
+                                    autocomplete="off"
+                                    onClick={() => setClickInputName(true)}
+                                    onFocus={() => setClickInputName(true)}
+                                    onBlur={() => nameRef.current.value === "" && setClickInputName(false)}
+                                    inputMode="numeric"
+                                />
+                            </div> */}
+                            <ProInput titleLabel={"نام و نام خانوادگی"} nameInput={"name"} inputRef={inputNameRef} />
+
                             <div className="wrapper-input">
                                 <label
                                     for="phoneNumber"
@@ -151,22 +169,7 @@ export default function LoginSite() {
                                     inputMode="numeric"
                                 />
                             </div>
-                            <div className="wrapper-input">
-                                <label for="name" className={clickInpuName ? "label-login click" : "label-login"}>
-                                    نام ونام خانوادگی
-                                </label>
-                                <input
-                                    ref={nameRef}
-                                    type="rext"
-                                    id="name"
-                                    class="input-login"
-                                    autocomplete="off"
-                                    onClick={() => setClickInputName(true)}
-                                    onFocus={() => setClickInputName(true)}
-                                    onBlur={() => nameRef.current.value === "" && setClickInputName(false)}
-                                    inputMode="numeric"
-                                />
-                            </div>
+
                             <div class="wrapper-input">
                                 <label for="password" className={clickPassword ? "label-login click" : "label-login"}>
                                     رمز عبور

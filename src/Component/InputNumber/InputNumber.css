@@ -1,0 +1,73 @@
+.number-wrapper{
+    border: 3px solid var(--blue-dark);
+    position: relative;
+    width: 8rem;
+    height: 3.5rem;
+    border-radius: 3rem;
+   
+}
+.input-number-parent{
+    position: absolute;
+}
+.input-number{
+    font-family: "mikhakBold";
+    position: absolute;
+    top: 0.5rem;
+    right: 1.5rem;
+    height: 2rem;
+    width: 4.2rem;
+    border: none;
+    text-align: center;
+    font-size: 2rem;
+    outline: none;    
+    color: var(--blue-dark);
+    background-color: transparent;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+.icon-up{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    stroke-width: 3.5px;
+    stroke: var(--blue-dark); 
+}
+.icon-down{
+    position: absolute;
+    top: 5px;
+    right:5px;
+    stroke-width: 3.5px;
+    stroke: var(--blue-dark);
+}
+.icon-up:hover, .icon-down:hover{
+  cursor: pointer;
+  stroke: var(--blue-main);
+}
+.product-number input{
+  padding: 0.8rem;
+  width: 5rem;
+  height: 5rem;
+}
+.plus-parent{
+    background-color: var(--blue-glass);
+    height: 2.95rem;
+    width: 2.5rem;
+    border-radius: 1.6rem 0 0 1.6rem;
+    position: absolute;
+    left: 0;
+}
+.minus-parent{
+    background-color: var(--blue-glass);
+    height: 2.95rem;
+    width: 2.5rem;
+    border-radius:0 1.6rem 1.6rem 0 ;
+    position: absolute;
+    
+}

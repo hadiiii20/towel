@@ -40,12 +40,12 @@
     opacity: 0
      
 }
-.menu-item a{
+.menu-link{
     color: var(--white);
     text-decoration: none;
     font-size: 1.8rem;
 }
-.menu-item__active{
+.menu-link.active{
     color: var(--green-main) !important;
 }
 .icon-menu{
@@ -124,7 +124,24 @@
 .menu-item a:hover, .login-icon svg:hover, .buy-icon svg:hover{
     color: var(--green-main);
 }
-
+.basket-wrapper{
+    position: relative;
+}
+.number-cart-prouduct{
+    position: absolute;
+    top: -0.9rem;
+    right: -1rem;
+    background-color: var(--green-main);
+    color: var(--blue-main);
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 600;
+}
 
 /* ---menu-hamberger----- */
 .wrapper-hamberger-menu{

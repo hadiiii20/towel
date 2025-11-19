@@ -1,0 +1,38 @@
+.error-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 85vh;
+    margin-bottom: 15rem;
+}
+.error-wrapper img{
+    margin-top: 20rem;
+    width: 30%;
+    margin-bottom: 2rem;
+}   
+.error-wrapper h3{
+    font-family: "Lalezar";
+    font-size: 4rem;
+    color: var(--blue-main);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+.error-wrapper a{
+    text-decoration: none;
+    margin-top:4rem;
+    padding: 1rem 2rem;
+    background-color: var(--green-main);
+    color: var(--blue-main);
+    font-size: 1.6rem;
+    border-radius: 2rem;
+    transition: all 0.3s ease-in-out;
+    font-weight: 600;
+
+}   
+.error-wrapper a:hover{
+    background-color: var(--blue-main);
+    color: var(--white);
+}

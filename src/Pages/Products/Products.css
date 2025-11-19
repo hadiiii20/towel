@@ -4,6 +4,7 @@
 .img-productpage-wrapper img{
     border-radius: 3.5rem;
     width: 100%;
+    box-shadow: 0px 6px 10px 0px var(--blue-dark);
 }
 .table-product-wrapper{
     

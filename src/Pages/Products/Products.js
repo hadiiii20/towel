@@ -65,6 +65,9 @@ export default function Products() {
             }
         };
     });
+    useEffect(() => {
+        console.log("productFilterDatabase", productFilterDatabase);
+    }, [productFilterDatabase]);
 
     return (
         <>

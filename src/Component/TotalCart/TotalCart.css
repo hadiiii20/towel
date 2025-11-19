@@ -1,0 +1,108 @@
+.shoppingcart-total-wrapper{
+    padding: 4rem 3rem;
+    width: 30rem;
+    height: 38rem;
+    box-shadow: 0 0 10px var(--blue-glass);
+    border-radius: 3rem;
+    font-weight: 600;
+    font-size: 1.8rem;
+    justify-self: center;
+    position: sticky;
+    top: 15rem;
+}
+.shoppingcart-total{
+    color: var(--blue-main);
+    margin-bottom: 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.title-total{
+    font-size: 1.6rem;
+}
+.price-total{
+    font-size: 2rem;
+}
+.total-off{
+    border-radius: 7px;
+    width: 55%;
+    height: 2.5rem;
+    color: var(--blue-main);
+    border:2px solid var(--blue-glass);
+    outline: none;
+    padding: 0 1rem;
+}
+.cost-send{
+    font-size: 1.4rem;
+    color: var(--blue-glass);
+}
+
+.shoppingcart-total-all{
+    color: var(--blue-dark);
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--blue-glass) ;
+}
+.shoppingcart-total-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    margin-top: 4rem;
+    background-color: var(--blue-glass);
+    border: 2px solid var(--blue-glass);
+    border-radius: 1.5rem;
+    font-size: 1.6rem;
+}
+.shoppingcart-total-btn:hover{
+    border: 2px solid var(--blue-dark);
+    cursor: pointer;
+}
+.shoppingcart-total-btn:hover svg{
+   transform:translateX(-5px)
+}
+.shoppingcart-total-btn a{
+    color: var(--blue-dark);
+}
+.shoppingcart-total-btn svg{
+    stroke: var(--blue-dark);
+    transition: all 250ms ease-in-out;
+    margin-right: 0.3rem;
+}
+
+
+
+/* /responsive------------- */
+
+@media (max-width:1400px) {
+   
+}
+
+@media (max-width:1210px) {
+
+}
+@media (max-width:960px) {
+    .shoppingcart-page{
+        grid-template: auto/1fr;
+    }
+    .shoppingcart-item-details{
+        grid-template:1fr/ 3fr 2fr 2fr 1fr;
+    }
+    /* .shoppingcart-item-details{
+        grid-template: 1fr 1fr/1fr 1fr;
+    } */
+    .shoppingcart-item-remove-btn{
+        justify-self: center;
+    }
+    .shoppingcart-total-wrapper {
+        margin-top: 2rem;
+    }
+    .shoppingcart-empty-img{
+    max-width: 35%;
+    }
+    .shoppingcart-empty-title{
+    font-size: 1.5rem;
+    padding: 2rem 3rem;
+    }
+}

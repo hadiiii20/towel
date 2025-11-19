@@ -1,0 +1,17 @@
+.shoppingcart-page{
+    margin: 16rem auto;
+    display: grid;
+    grid-template:auto/5fr 2fr;
+    gap: 1rem;
+
+}
+.shoppingcart-wrapper{
+    padding: 3rem;
+    max-width: 80rem;
+    box-shadow: 0 0 10px var(--blue-glass);
+    border-radius: 3rem;
+    font-family: "mikhakBold";
+    font-size: 1.6rem;
+    color: var(--blue-dark);
+    justify-self: center;
+} 

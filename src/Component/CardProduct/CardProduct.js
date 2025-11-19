@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "./CardProduct.css";
 import { Link } from "react-router-dom";
-import { keys } from "@mui/system";
 import SizeTowel from "../SizeTowel/SizeTowel";
+import toast from "react-hot-toast";
+import { ProductsContext } from "../../Context/ProductsContext";
 
 export default function CardProduct({ srcCard, nameCard, detailsCard, typeCard, offCard, idCard, btnModalGuide }) {
     const [priceOff, setPriceOff] = useState();
@@ -10,8 +11,11 @@ export default function CardProduct({ srcCard, nameCard, detailsCard, typeCard, 
     const [priceDefaultOff, setPriceDefaultOff] = useState();
     const [priceDefaultOriginal, setPriceDefaultOriginal] = useState();
     const [sizeDefault, setSizeDefault] = useState();
-    let offPercent = offCard * 100;
+    const [maxNumber, setMaxNumber] = useState();
 
+    const prodcutsBasket = useContext(ProductsContext);
+
+    let offPercent = offCard * 100;
     const selectSize = (e) => {
         let size = e.target.innerText;
         detailsCard.forEach((item) => {
@@ -28,7 +32,26 @@ export default function CardProduct({ srcCard, nameCard, detailsCard, typeCard, 
         e.target.classList.add("selected__size");
     };
     useEffect(() => {
+        const found = detailsCard.find((item) => item.size === sizeDefault);
+        if (found) setMaxNumber(found.number);
+    }, [sizeDefault, detailsCard]);
+
+    const addToBasket = () => {
+        let newBuyProduct = {
+            id: idCard,
+            name: nameCard,
+            size: sizeDefault,
+            price: priceOff ? priceOff : priceDefaultOff ? priceDefaultOff : priceDefaultOriginal,
+            src: srcCard,
+            number: 1,
+            maxnumber: maxNumber,
+        };
+        prodcutsBasket.setBuyProducts((prevBuyProducts) => [...prevBuyProducts, newBuyProduct]);
+        console.log(prodcutsBasket.buyProducts);
+    };
+    useEffect(() => {
         const firstAvailable = detailsCard.find((pro) => pro.number > 0);
+
         if (firstAvailable) {
             let priceMain = Number(firstAvailable.price).toLocaleString();
             let convertNum = Number(firstAvailable.price);
@@ -39,8 +62,9 @@ export default function CardProduct({ srcCard, nameCard, detailsCard, typeCard, 
             setPriceDefaultOriginal(priceMain);
             setSizeDefault(firstAvailable.size);
         }
-    }, []);
+    }, [detailsCard, offCard]);
 
+    const notify = () => toast.success("محصول با موفقیت به سبد خرید اضافه شد !");
     return (
         <>
             <div className="CardProduct">
@@ -49,19 +73,27 @@ export default function CardProduct({ srcCard, nameCard, detailsCard, typeCard, 
                     <div className="CardProduct-img-cover"></div>
                     {offPercent > 0 && <div className="off-towel">{`%${offPercent}`}</div>}
                     <div className="CardProduct-btnImg-wrapper">
-                        <div className="CardProduct-add-to-card">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="18"
-                                height="18"
-                                fill="currentColor"
-                                className="bi bi-basket-fill"
-                                viewBox="0 0 16 16"
-                            >
-                                <path d="M5.071 1.243a.5.5 0 0 1 .858.514L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 6h1.717zM3.5 10.5a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0z" />
-                            </svg>
-                            <span>سبد خرید</span>
-                        </div>
+                        <Link
+                            onClick={() => {
+                                addToBasket();
+                                notify();
+                            }}
+                        >
+                            <div className="CardProduct-add-to-card">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="18"
+                                    height="18"
+                                    fill="currentColor"
+                                    className="bi bi-basket-fill"
+                                    viewBox="0 0 16 16"
+                                >
+                                    <path d="M5.071 1.243a.5.5 0 0 1 .858.514L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 6h1.717zM3.5 10.5a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0z" />
+                                </svg>
+                                <span>سبد خرید</span>
+                            </div>
+                        </Link>
+
                         <Link to={`/products/${idCard}`}>
                             <div className="CardProduct-view-more">
                                 <svg

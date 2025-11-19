@@ -118,3 +118,9 @@ body::-webkit-scrollbar-thumb:hover {
   /* background: var(--blue-main); */
   border: 1px solid var(--blue-main);
 }
+.toast-basket{
+    font-weight: 600;
+    direction: rtl;
+    font-size: 1.2rem;
+    padding: 1rem 2rem !important;
+}

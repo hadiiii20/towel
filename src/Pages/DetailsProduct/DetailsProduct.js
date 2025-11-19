@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import Breadcrumb from "../../Component/Breadcrumb/Breadcrumb";
 import Rating from "@mui/material/Rating";
 import productsNew from "../../productsDatabase";
@@ -8,6 +8,7 @@ import Divider from "../../Component/Divider/Divider";
 import SliderProducts from "../../Component/SliderProducts/SliderProducts";
 import ModalSizeGuid from "../../Component/ModalSizeGuide/ModalSizeGuid";
 import SizeTowel from "../../Component/SizeTowel/SizeTowel";
+import InputNumber from "../../Component/InputNumber/InputNumber";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -22,10 +23,8 @@ import { Zoom, FreeMode, Navigation, Thumbs } from "swiper/modules";
 
 export default function DetailsProduct() {
     let params = useParams();
-    // const [productSelect, setProductSelect] = useState({});
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [activeTab, setActiveTab] = useState("description");
-    const [productValue, setProductValue] = useState(1);
     const [isShowModal, setIsShowModal] = useState(false);
 
     const [priceOff, setPriceOff] = useState();
@@ -34,9 +33,53 @@ export default function DetailsProduct() {
     const [priceDefaultOff, setPriceDefaultOff] = useState();
     const [priceDefaultOriginal, setPriceDefaultOriginal] = useState();
 
-    const productSelect = productsNew.find((item) => item.id === Number(params.id));
+    const [numberInputNumber, setNumberInputNumber] = useState();
 
-    const productSlider = productsNew.filter((item) => item.type === productSelect.type);
+    const [resetValue, setResetValue] = useState(false);
+
+    let hasPost = productsNew.some((item) => item.id === Number(params.id));
+    let productSelect;
+    let productSlider;
+
+    useEffect(() => {
+        if (!hasPost) return;
+        const product = productsNew.find((item) => item.id === Number(params.id));
+        const firstAvailable = product.details.find((pro) => pro.number > 0);
+        if (firstAvailable) {
+            let priceMain = Number(firstAvailable.price).toLocaleString();
+            let convertNum = Number(firstAvailable.price);
+            product.off > 0 && (convertNum = (1 - product.off) * convertNum);
+            let PriceDefaultOff = convertNum.toLocaleString();
+
+            setPriceDefaultOff(PriceDefaultOff);
+            setPriceDefaultOriginal(priceMain);
+            setSizeDefault(firstAvailable.size);
+            setNumberInputNumber(firstAvailable.number);
+            setResetValue(true);
+        }
+    }, [hasPost, params.id]);
+    useEffect(() => {
+        setResetValue(1);
+    }, [priceMain, priceOff]);
+
+    const btnModalGuide = () => {
+        setIsShowModal(!isShowModal);
+    };
+
+    useEffect(() => {
+        window.onclick = (e) => {
+            if (e.target.classList.contains("modal-help-size")) {
+                btnModalGuide();
+            }
+        };
+    });
+
+    if (!hasPost) {
+        return <Navigate to={"/ErrorPage"} />;
+    } else {
+        productSelect = productsNew.find((item) => item.id === Number(params.id));
+        productSlider = productsNew.filter((item) => item.type === productSelect.type);
+    }
 
     const selectSize = (e) => {
         let size = e.target.innerText;
@@ -49,36 +92,14 @@ export default function DetailsProduct() {
                 setPriceOff(priceCardOff);
                 setPriceMain(priceMain);
                 setSizeDefault(item.size);
+                setNumberInputNumber(item.number);
+                setResetValue(true);
             }
         });
 
         e.target.classList.add("selected__size");
     };
-    useEffect(() => {
-        const firstAvailable = productSelect.details.find((pro) => pro.number > 0);
-        if (firstAvailable) {
-            let priceMain = Number(firstAvailable.price).toLocaleString();
-            let convertNum = Number(firstAvailable.price);
-            productSelect.off > 0 && (convertNum = (1 - productSelect.off) * convertNum);
-            let PriceDefaultOff = convertNum.toLocaleString();
-
-            setPriceDefaultOff(PriceDefaultOff);
-            setPriceDefaultOriginal(priceMain);
-            setSizeDefault(firstAvailable.size);
-        }
-    }, []);
-
-    const btnModalGuide = () => {
-        setIsShowModal(!isShowModal);
-    };
-    useEffect(() => {
-        window.onclick = (e) => {
-            if (e.target.classList.contains("modal-help-size")) {
-                btnModalGuide();
-            }
-        };
-    });
-
+    // console.log(numberInputNumber);
     return (
         <>
             <Breadcrumb nameGroup={productSelect.type} nameProduct={productSelect.name} />
@@ -213,51 +234,7 @@ export default function DetailsProduct() {
                     </div>
 
                     <div class="input-number-wrapper">
-                        <div class="plus-parent">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="22"
-                                height="22"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="#000000"
-                                stroke-width="2.75"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                class="icon-up"
-                                onClick={() => setProductValue(productValue + 1)}
-                            >
-                                <path d="M12 5l0 14" />
-                                <path d="M5 12l14 0" />
-                            </svg>
-                        </div>
-
-                        <div class="input-number-parent">
-                            <input
-                                class="input-number"
-                                value={productValue}
-                                type="number"
-                                name="numver-product"
-                                id="number-prouduct"
-                            />
-                        </div>
-                        <div class="minus-parent">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="22"
-                                height="22"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="#000000"
-                                stroke-width="2.75"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                class="icon-down"
-                                onClick={() => productValue > 1 && setProductValue(productValue - 1)}
-                            >
-                                <path d="M5 12l14 0" />
-                            </svg>
-                        </div>
+                        <InputNumber maxValue={numberInputNumber} value={resetValue} resetval={resetValue} />
                     </div>
                     <div className="product-basket">
                         <button className="btn-product-basket">

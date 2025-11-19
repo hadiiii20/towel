@@ -9,3 +9,9 @@
 .sizeTowel-input:checked +.sizeTowel{
     background-color: var(--green-main);
 }
+.sizeTowel.sizeTowel-active{
+    background-color: var(--green-main);
+} 
+.sizeTowel.selected__size{
+    background-color: var(--green-main);
+} 
