@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import Breadcrumb from "../../Component/Breadcrumb/Breadcrumb";
 import Rating from "@mui/material/Rating";
-import productsNew from "../../productsDatabase";
+import productsDatabase from "../../productsDatabase";
 import Button from "../../Component/Button/Button";
 import Divider from "../../Component/Divider/Divider";
 import SliderProducts from "../../Component/SliderProducts/SliderProducts";
@@ -37,13 +37,13 @@ export default function DetailsProduct() {
 
     const [resetValue, setResetValue] = useState(false);
 
-    let hasPost = productsNew.some((item) => item.id === Number(params.id));
+    let hasPost = productsDatabase.some((item) => item.id === Number(params.id));
     let productSelect;
     let productSlider;
 
     useEffect(() => {
         if (!hasPost) return;
-        const product = productsNew.find((item) => item.id === Number(params.id));
+        const product = productsDatabase.find((item) => item.id === Number(params.id));
         const firstAvailable = product.details.find((pro) => pro.number > 0);
         if (firstAvailable) {
             let priceMain = Number(firstAvailable.price).toLocaleString();
@@ -77,8 +77,8 @@ export default function DetailsProduct() {
     if (!hasPost) {
         return <Navigate to={"/ErrorPage"} />;
     } else {
-        productSelect = productsNew.find((item) => item.id === Number(params.id));
-        productSlider = productsNew.filter((item) => item.type === productSelect.type);
+        productSelect = productsDatabase.find((item) => item.id === Number(params.id));
+        productSlider = productsDatabase.filter((item) => item.type === productSelect.type);
     }
 
     const selectSize = (e) => {

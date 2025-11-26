@@ -94,7 +94,7 @@ export default function CardProduct({ srcCard, nameCard, detailsCard, typeCard, 
                             </div>
                         </Link>
 
-                        <Link to={`/products/${idCard}`}>
+                        <Link to={`/products/${typeCard}/${idCard}`}>
                             <div className="CardProduct-view-more">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"

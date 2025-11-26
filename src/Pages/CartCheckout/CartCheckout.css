@@ -15,3 +15,143 @@
     color: var(--blue-dark);
     justify-self: center;
 } 
+.address-user{
+    
+}
+.cartcheckout-title-main{
+    font-size: 1.8rem;
+}
+.cartcheckout-title-main span{
+    background-color: var(--green-main);
+    color: var(--blue-dark);
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+    font-size: 1.4rem;
+}
+.cartcheckout-title{
+    margin-top: 3rem;
+    font-size: 1.3rem;
+    color: var(--blue-main);
+    border-right: 7px solid var(--green-main);
+    border-radius: 0 5px 5px 0;
+    padding-right: 1rem;
+}
+.address-inputs{
+    display: flex;
+    gap: 1rem;
+    justify-content: start;
+    align-items: center;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+    
+}
+.address-inputs .wrapper-input{
+    width: 22rem;
+}
+
+.wrapper-input:has(input[name="city"]),
+.wrapper-input:has(input[name="village"]){
+    width: 15rem; 
+}
+.wrapper-input:has(textarea[name="address"]) {
+    width: 36rem; 
+}
+.wrapper-input:has(input[name="numberPlate"]),
+.wrapper-input:has(input[name="numberUnit"]){
+    width: 6rem; 
+}
+.wrapper-input:has(input[name="postalCode"]){
+    width: 15rem; 
+}
+.wrapper-input:has(textarea[name="description"]) {
+    width: 36rem; 
+}
+/* ////////////////////////////// */
+.sending-method{
+    border-top: 3px dashed var(--blue-glass) ;
+    margin-top: 5rem;
+    padding-top: 3rem;
+      
+}
+.sending-method-title{
+    font-size: 1.8rem;
+}
+.sending-method-title span{
+    background-color: var(--green-main);
+    color: var(--blue-dark);
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+    font-size: 1.4rem;
+}
+.sending-method-item-wrapper{
+    margin-top: 1.5rem !important;
+
+}
+.sending-method-item span{
+    font-family: "mikhak" !important;
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: var(--blue-main);
+    padding-top: 1rem;
+}
+.sending-method-item-caption{
+    padding-right: 5rem;
+    font-size: 1.1rem;
+    color: var(--blue-glass);
+}
+
+/* ////////////////////////////// */
+
+.payment-method{
+    border-top: 3px dashed var(--blue-glass) ;
+    margin-top: 5rem;
+    padding-top: 3rem;
+      
+}
+.payment-method-title{
+    font-size: 1.8rem;
+}
+.payment-method-title span{
+    background-color: var(--green-main);
+    color: var(--blue-dark);
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+    font-size: 1.4rem;
+}
+.payment-method-item-wrapper{
+    margin-top: 1.5rem !important;
+
+}
+.payment-method-item span{
+    font-family: "mikhak" !important;
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: var(--blue-main);
+    padding-top: 1rem;
+}
+.payment-method-item-caption{
+    padding-right: 5rem;
+    font-size: 1.1rem;
+    color: var(--blue-glass);
+}
+
+@media (max-width:1193px) {
+    .shoppingcart-page{
+        grid-template: auto/1fr;
+    }
+}

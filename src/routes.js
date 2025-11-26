@@ -7,16 +7,18 @@ import AboutMe from "./Pages/AboutMe/AboutMe";
 import ContactUs from "./Pages/ContactUs/ContactUs";
 import ShoppingCart from "./Pages/ShoppingCart/ShoppingCart";
 import CartCheckout from "./Pages/CartCheckout/CartCheckout";
+import ProductsCategory from "./Pages/ProductsCategory/ProductsCategory";
 
 let routes = [
     { path: "/", element: <Home /> },
     { path: "/aboutme", element: <AboutMe /> },
     { path: "/contactus", element: <ContactUs /> },
     { path: "/products", element: <Products /> },
+    { path: "/products/:categoryproduct/", element: <ProductsCategory /> },
     { path: "/login", element: <Login /> },
     { path: "/shoppingcart", element: <ShoppingCart /> },
     { path: "/shoppingcart/checkout", element: <CartCheckout /> },
-    { path: "/products/:id", element: <DetailsProduct /> },
+    { path: "/products/:categoryproduct/:id", element: <DetailsProduct /> },
     { path: "/ErrorPage", element: <ErrorPage /> },
     { path: "*", element: <ErrorPage /> },
 ];

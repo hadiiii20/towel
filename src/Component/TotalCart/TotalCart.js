@@ -1,22 +1,44 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./TotalCart.css";
 import { ProductsContext } from "../../Context/ProductsContext";
-import InputBlue from "../InputBlue/InputBlue";
 
-export default function TotalCart({ namebtn, routebtn, sendcost = 0 }) {
+export default function TotalCart({ namebtn, routebtn, sendcost = 0, offcost = false }) {
     const prodcutsBasket = useContext(ProductsContext);
     const totalPrice = prodcutsBasket.buyProducts.reduce(
         (sum, item) => sum + Number(item.price.replace(/,/g, "")) * Number(item.number),
         0
     );
+    const offRef = useRef();
+    const [percentOffer, setPercentOffer] = useState();
+    const [useOffer, setUseOffer] = useState(false);
+    const [offMassage, setOffMassage] = useState("");
+    const [priceAfterOff, setPriceAfterOff] = useState(0);
+    const handleOff = () => {
+        if (offRef.current.value === "hadi") {
+            setPercentOffer(0.1);
+            setOffMassage("10 درصد روی جمع خریدتان اعمال شد ");
+            setUseOffer(true);
+
+            console.log(priceAfterOff);
+        } else {
+            setOffMassage("کد صحیح نمی باشد");
+        }
+        if (offRef.current.value === "") {
+            setOffMassage("");
+        }
+    };
+    useEffect(() => {
+        let newPrice = Number(totalPrice - totalPrice * percentOffer);
+        setPriceAfterOff(newPrice);
+    }, [percentOffer, totalPrice]);
     return (
         <>
             <div className="shoppingcart-total-wrapper">
                 <div className="shoppingcart-total">
                     <p className="title-total">مجموع خرید</p>
                     <p className="price-total">
-                        {totalPrice.toLocaleString()}
+                        {useOffer ? priceAfterOff.toLocaleString() : totalPrice.toLocaleString()} {}
                         <span className="shoppingcart-item-price-unit">تومان</span>{" "}
                     </p>
                 </div>
@@ -25,21 +47,34 @@ export default function TotalCart({ namebtn, routebtn, sendcost = 0 }) {
                     {sendcost ? (
                         <>
                             <p className="price-total">
-                                {sendcost} <span className="shoppingcart-item-price-unit">تومان</span>{" "}
+                                {sendcost.toLocaleString()} <span className="shoppingcart-item-price-unit">تومان</span>{" "}
                             </p>
                         </>
                     ) : (
                         <p className="cost-send">آدرس را مشخص کنید</p>
                     )}
                 </div>
-                <div className="shoppingcart-total">
-                    <p className="title-total">کد تخفیف</p>
-                    <InputBlue width={"55%"} height={"2.5rem"} />
-                </div>
+                {offcost && (
+                    <div className="shoppingcart-total">
+                        <p className="title-total">کد تخفیف</p>
+                        <div className="input-total-off-wrapper">
+                            <input
+                                className={`input-total-off ${offMassage === "کد صحیح نمی باشد" && "isfalse"}`}
+                                ref={offRef}
+                                onChange={handleOff}
+                            />
+                            {offMassage && <span> {offMassage}</span>}
+                        </div>
+                    </div>
+                )}
+
                 <div className="shoppingcart-total shoppingcart-total-all ">
                     <p className="title-total">جمع کل</p>
                     <p className="price-total">
-                        1260000 <span className="shoppingcart-item-price-unit">تومان</span>{" "}
+                        {sendcost
+                            ? ((useOffer ? priceAfterOff : totalPrice) + sendcost).toLocaleString()
+                            : (useOffer ? priceAfterOff : totalPrice).toLocaleString()}
+                        <span className="shoppingcart-item-price-unit">تومان</span>{" "}
                     </p>
                 </div>
                 <Link to={routebtn} className="shoppingcart-total shoppingcart-total-btn">

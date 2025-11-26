@@ -1,23 +1,21 @@
 import React, { useState, useEffect } from "react";
-import Breadcrumb from "../../Component/Breadcrumb/Breadcrumb";
+import { useParams } from "react-router-dom";
 import productsDatabase from "../../productsDatabase";
+import "./ProductsCategory.css";
 import ModalSizeGuid from "../../Component/ModalSizeGuide/ModalSizeGuid";
-
-import "./Products.css";
-import CardProduct from "../../Component/CardProduct/CardProduct";
+import Breadcrumb from "../../Component/Breadcrumb/Breadcrumb";
 import ButtonFilter from "../../Component/ButtonFilter/ButtonFilter";
+import CardProduct from "../../Component/CardProduct/CardProduct";
 
-export default function Products() {
+export default function ProductsCategory() {
+    let params = useParams();
     const [isShowModal, setIsShowModal] = useState(false);
-    const [productFilterDatabase, setProductFilterDatabase] = useState(productsDatabase);
     const [type, setType] = useState();
-    const [nameAfterFilterType, setNameAfterFilterType] = useState("");
     const [nameAfterFilterSort, setNameAfterFilterSort] = useState("");
     const [nameAfterFilterSize, setNameAfterFilterSize] = useState("");
     const [nameAfterFilterColor, setNameAfterFilterColor] = useState("");
-
-    const productTypeGet = new Set(productFilterDatabase.map((item) => item.type));
-    const productType = [...productTypeGet];
+    let productInCategory = productsDatabase.filter((item) => item.type === params.categoryproduct);
+    const [productFilterDatabase, setProductFilterDatabase] = useState(productInCategory);
 
     const productColorGet = new Set(productFilterDatabase.map((item) => item.color));
     const productColor = [...productColorGet];
@@ -28,10 +26,7 @@ export default function Products() {
     const productSort = ["تخفیف دار ها", "جدیدترین", "پرفروش ترین", "پربازدیدترین", "ارزان ترین", "گران ترین"];
 
     const handleSelect = (e) => {
-        if (productType.includes(e)) {
-            setProductFilterDatabase(productFilterDatabase.filter((item) => item.type === e));
-            setNameAfterFilterType(e);
-        } else if (productColor.includes(e)) {
+        if (productColor.includes(e)) {
             setProductFilterDatabase(productFilterDatabase.filter((item) => item.color === e));
             setNameAfterFilterColor(e);
         } else if (productSize.includes(e)) {
@@ -47,9 +42,8 @@ export default function Products() {
         }
     };
     const handlerFilter = () => {
-        setProductFilterDatabase(productsDatabase);
+        setProductFilterDatabase(productInCategory);
         setNameAfterFilterSort("");
-        setNameAfterFilterType("");
         setNameAfterFilterSize("");
         setNameAfterFilterColor("");
     };
@@ -68,8 +62,7 @@ export default function Products() {
 
     return (
         <>
-            <Breadcrumb />
-
+            <Breadcrumb nameGroup={params.categoryproduct} />
             <div className="img-productpage-wrapper">
                 <img src="/images/towelPageProduct.jpg" alt="" />
             </div>
@@ -81,7 +74,6 @@ export default function Products() {
                             itemFilter={productSort}
                             handlerSelect={handleSelect}
                         />
-                        <ButtonFilter nameButton={"نوع حوله"} itemFilter={productType} handlerSelect={handleSelect} />
                         <ButtonFilter
                             nameButton={"سایز حوله"}
                             itemFilter={productSize}
@@ -107,24 +99,6 @@ export default function Products() {
                                 <path d="M20 12v6a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h9" />
                             </svg>
                             {nameAfterFilterSort}
-                        </div>
-
-                        <div className={nameAfterFilterType.length ? "after-filter-item" : "after-filter-item-hidden"}>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="#000000"
-                                stroke-width="1.75"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            >
-                                <path d="M9 11l3 3l8 -8" />
-                                <path d="M20 12v6a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h9" />
-                            </svg>
-                            {nameAfterFilterType}
                         </div>
 
                         <div className={nameAfterFilterSize.length ? "after-filter-item" : "after-filter-item-hidden"}>
@@ -169,10 +143,7 @@ export default function Products() {
 
                         <div
                             className={
-                                nameAfterFilterSort.length ||
-                                nameAfterFilterType.length ||
-                                nameAfterFilterSize.length ||
-                                nameAfterFilterColor.length
+                                nameAfterFilterSort.length || nameAfterFilterSize.length || nameAfterFilterColor.length
                                     ? "after-filter-item-btn"
                                     : "after-filter-item-btn-hidden"
                             }
@@ -228,6 +199,7 @@ export default function Products() {
                     )}
                 </div>
             </div>
+
             {isShowModal && (
                 <div className={`modal-wrapper ${isShowModal ? "active" : ""}`}>
                     {type === "حوله تنپوش کودک" ? (

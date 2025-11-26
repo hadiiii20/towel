@@ -22,12 +22,13 @@
 }
 .footer{
     background-color: var(--blue-main);
-    width: 100%;
+    width: 95%;
     border-radius: 7rem;
     padding: 6rem 10rem;
     display: grid;
     grid-template: 4fr 1fr/ 1fr 1fr 1fr;
     line-height: 1.5rem;
+    margin: 0 auto;
     
 
     
@@ -38,7 +39,7 @@
 .ul-footer-right{
 
 }
-.footer-item:first-child{
+.footer-item:first-child {
     font-family: "MikhakBold";
     margin-bottom: 3.5rem;
     font-size: 2.5rem;
@@ -58,12 +59,14 @@
     color: var(--white);
     cursor: default;   
 }
-.footer-item{
+.footer-item {
     color: var(--white);
     font-size: 1.6rem;
     cursor: pointer;
-    margin-bottom: 2.5rem;
-    
+    margin-bottom: 2.5rem;  
+}
+.footer-item a{
+    color: var(--white);
 }
 .footer-item:hover{
     color: var(--green-main);
@@ -119,9 +122,9 @@
 .footer-bottom{
   background-color: var(--green-main);
   position: absolute;
-  left: 50%;
-  transform: translateX(-49.2%);
-  width: 100vw;  
+  /* left: 50%; */
+  /* transform: translateX(-49.2%); */
+  width: 100%;  
   max-width: 100vw;
   height: 30rem;
   bottom: -11rem;
@@ -151,10 +154,7 @@
 }
 
 @media (max-width:768px) {
-    .footer-bottom{
-        left: 50%;
-        transform: translateX(-49%);
-    }
+   
     .footer-center{
         display: none;
     }
@@ -170,8 +170,11 @@
         font-size: 1.9rem;
     }
     .footer-address:first-child{
-        font-size: 2.1rem;
+        font-size: 1.8rem;
     } 
+    .footer{
+        padding: 6rem 3rem;
+    }
 
 }
 
