@@ -77,12 +77,12 @@ export default function NavbarBlue() {
                     </li>
                     <li className="menu-item"></li>
                     <li className="menu-item">
-                        <NavLink to={"/aboutme"} className={`menu-link ${(link) => (link.isActive ? "active" : "")}`}>
+                        <NavLink to={"/contactus"} className={`menu-link ${(link) => (link.isActive ? "active" : "")}`}>
                             تماس باما
                         </NavLink>
                     </li>
                     <li className="menu-item">
-                        <NavLink to={"/contactus"} className={`menu-link ${(link) => (link.isActive ? "active" : "")}`}>
+                        <NavLink to={"/aboutme"} className={`menu-link ${(link) => (link.isActive ? "active" : "")}`}>
                             درباره ما
                         </NavLink>
                     </li>
@@ -95,17 +95,25 @@ export default function NavbarBlue() {
                 <div className="wrapper-hamberger-menu" style={{ right: `${openMenu}` }}>
                     <ul className="menu-hamberger">
                         <li className="menu-hamberger-item ">
-                            <Link className="menu-hamberger-item-link menu-hamberger-item__active">صفحه اصلی</Link>
+                            <Link to={"/"} className="menu-hamberger-item-link menu-hamberger-item__active">
+                                صفحه اصلی
+                            </Link>
                         </li>
                         <li className="menu-hamberger-item">
-                            <Link className="menu-hamberger-item-link">فروشگاه</Link>
+                            <Link to={"/products"} className="menu-hamberger-item-link">
+                                فروشگاه
+                            </Link>
                         </li>
 
                         <li className="menu-hamberger-item">
-                            <Link className="menu-hamberger-item-link">تماس باما</Link>
+                            <Link to={"/contactus"} className="menu-hamberger-item-link">
+                                تماس باما
+                            </Link>
                         </li>
                         <li className="menu-hamberger-item">
-                            <Link className="menu-hamberger-item-link">درباره ما</Link>
+                            <Link to={"/aboutme"} className="menu-hamberger-item-link">
+                                درباره ما
+                            </Link>
                         </li>
                     </ul>
                 </div>

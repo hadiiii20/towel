@@ -1,0 +1,43 @@
+.contactus{
+    margin-top: 18rem;
+}
+.contactus-wrapper{
+    display: grid;
+    grid-template: 1fr/1fr 1fr;
+    margin-top: 3rem;
+}
+.contactus-detials-call{
+    justify-self: center;
+    align-self: center;
+    font-family: "Mikhak";
+    font-weight: 600;
+}
+.contactus-detials-call p{
+    margin-bottom: 3.5rem;
+    color: var(--blue-main);
+}
+.contactus-detials-call p strong{
+    color: var(--blue-dark) ;
+    padding-left: 1rem;
+}
+
+
+.contactus-map{
+    width: 80%;
+    height: 350px;
+    justify-self: center;
+    align-self: center;
+    z-index: 0;
+    border: 2px solid var(--blue-main);
+    border-radius: 35px;
+    overflow: hidden;
+    box-shadow: 0 0 20px 0px var(--blue-dark);
+}
+
+
+@media (max-width:768px) {
+    .contactus-wrapper{
+        grid-template: 1fr/1fr;
+        gap: 3rem;
+    }
+}   

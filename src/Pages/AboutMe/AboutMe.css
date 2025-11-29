@@ -1,0 +1,54 @@
+.aboutme-wrapper{
+    display: grid;
+    grid-template:1fr/3fr 2fr ;
+}
+.aboutme-details{
+    padding-right: 5rem;
+}
+.aboutme{
+    margin-top: 17rem;
+}
+.aboutme-title{
+    font-size: 2.4rem;
+    font-family: "lalezar";
+    margin-bottom: 1.5rem;
+    color: var(--blue-dark);
+}
+.aboutme-text{
+    line-height: 2.5rem;
+    width: 80%;
+    text-align: justify;
+    color: var(--blue-main);
+}
+.aboutme-img{
+    justify-self: center;
+    text-align: center;
+}
+.aboutme-img img{
+    width: 78%;
+    border-radius: 50%;
+    box-shadow: 0 0 20px 0px var(--blue-dark);
+    position: sticky;
+    top: 10rem;
+    left: 10rem;
+}
+
+
+@media (max-width:780px){
+    .aboutme-wrapper{
+     grid-template:1fr/3fr 1fr;
+     gap: 2rem;
+    }
+    .aboutme-img img{
+        width: 100%;
+    }
+}
+@media (max-width:620px){
+    .aboutme-wrapper{
+     grid-template:1fr/1fr;
+     gap: 2rem;
+    }
+    .aboutme-img img{
+        width: 80%;
+    }
+}

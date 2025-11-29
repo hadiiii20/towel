@@ -36,18 +36,40 @@ export default function CardProduct({ srcCard, nameCard, detailsCard, typeCard, 
         if (found) setMaxNumber(found.number);
     }, [sizeDefault, detailsCard]);
 
-    const addToBasket = () => {
-        let newBuyProduct = {
-            id: idCard,
-            name: nameCard,
-            size: sizeDefault,
-            price: priceOff ? priceOff : priceDefaultOff ? priceDefaultOff : priceDefaultOriginal,
-            src: srcCard,
-            number: 1,
-            maxnumber: maxNumber,
-        };
-        prodcutsBasket.setBuyProducts((prevBuyProducts) => [...prevBuyProducts, newBuyProduct]);
-        console.log(prodcutsBasket.buyProducts);
+    let isProductInProudct = prodcutsBasket.buyProducts.some(
+        (item) => item.name === nameCard && item.size === sizeDefault
+    );
+
+    let addToBasket = () => {
+        if (!isProductInProudct) {
+            let newBuyProduct = {
+                id: idCard,
+                name: nameCard,
+                size: sizeDefault,
+                price: priceOff ? priceOff : priceDefaultOff ? priceDefaultOff : priceDefaultOriginal,
+                src: srcCard,
+                number: 1,
+                maxnumber: maxNumber,
+            };
+
+            prodcutsBasket.setBuyProducts((prevBuyProducts) => [...prevBuyProducts, newBuyProduct]);
+            notify();
+        } else {
+            let productCart = [...prodcutsBasket.buyProducts];
+
+            productCart.some((pro) => {
+                if (pro.name === nameCard && pro.size === sizeDefault) {
+                    if (pro.number < pro.maxnumber) {
+                        pro.number += 1;
+                        notifyUpadateNumber();
+                    } else {
+                        notifyErrorMaxnumber();
+                    }
+                    return true;
+                }
+            });
+            prodcutsBasket.setBuyProducts(productCart);
+        }
     };
     useEffect(() => {
         const firstAvailable = detailsCard.find((pro) => pro.number > 0);
@@ -63,8 +85,26 @@ export default function CardProduct({ srcCard, nameCard, detailsCard, typeCard, 
             setSizeDefault(firstAvailable.size);
         }
     }, [detailsCard, offCard]);
-
-    const notify = () => toast.success("محصول با موفقیت به سبد خرید اضافه شد !");
+    const notify = () =>
+        toast.success("محصول با موفقیت به سبد خرید اضافه شد !", {
+            style: {
+                backgroundColor: "var(--green-main)",
+            },
+        });
+    const notifyErrorMaxnumber = () => toast.error("محدودیت موجودی!! ");
+    const notifyUpadateNumber = () =>
+        toast.success("تعداد محصول در  🛒 بروزرسانی شد !", {
+            style: {
+                border: "2px solid var(--blue-dark)",
+                padding: "16px",
+                color: "var(--blue-dark)",
+                backgroundColor: "var(--blue-glass)",
+            },
+            iconTheme: {
+                primary: "var(--blue-dark)",
+                secondary: "var(--blue-glass)",
+            },
+        });
     return (
         <>
             <div className="CardProduct">
@@ -76,7 +116,6 @@ export default function CardProduct({ srcCard, nameCard, detailsCard, typeCard, 
                         <Link
                             onClick={() => {
                                 addToBasket();
-                                notify();
                             }}
                         >
                             <div className="CardProduct-add-to-card">
