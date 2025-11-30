@@ -1,6 +1,8 @@
 import React from "react";
 import "./Footer.css";
 import { Link } from "react-router-dom";
+import categoryDatabase from "../../categoryDatebase";
+
 export default function Footer() {
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -42,25 +44,24 @@ export default function Footer() {
                     <div className="footer-center">
                         <ul className="ul-footer-center">
                             <li className="footer-item">دسته بندی</li>
-                            <li className="footer-item">حوله تنپوش زنانه</li>
-                            <li className="footer-item">حوله تنپوش مردانه</li>
-                            <li className="footer-item">حوله تنپوش بچگانه</li>
-                            <li className="footer-item">حوله حمامی</li>
-                            <li className="footer-item">حوله استخری</li>
-                            <li className="footer-item">حوله دستی</li>
+                            {categoryDatabase.map((item) => (
+                                <li className="footer-item" key={item.id}>
+                                    <Link to={`/products/${item.title}`}>{item.title}</Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                     <div className="footer-left">
                         <ul className="ul-footer-left">
                             <li className="footer-address ">اطلاعات تماس</li>
                             <li className="footer-address">
-                                <span> آدرس : </span>تهران، کیلومتر ۱۸ جاده مخصوص کرج، خیابان ۶۳، کوچه دوم، پلاک ۴
+                                <span> آدرس : </span>تهران، خانی آبادنو خیابان شهرداری، پلاک 75
                             </li>
                             <li className="footer-address">
-                                <span>پشتیبانی فروش : </span> 02144981156
+                                <span>پشتیبانی فروش : </span> 02155034296
                             </li>
                             <li className="footer-address">
-                                <span>پست الکترونیک :</span> info@poodiran.com
+                                <span>پست الکترونیک :</span> info@poodishop.com
                             </li>
                         </ul>
                     </div>

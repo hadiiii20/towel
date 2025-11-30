@@ -1,15 +1,31 @@
 .form-wrapper{
     /* max-width: 120rem; */
-    height: 50rem;
+    height: 55rem;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
     gap: 1.5rem;
-    margin-top: 18rem;
+    margin-top: 16rem;
 }
+.qustion-login{
+    font-size: 1.4rem;
+    color: var(--blue-dark);
+    transition: all 200ms ease-in-out;
+    margin-bottom: 0.5rem;
 
-.form-title{
+}
+.qustion-login span{
+    border-bottom: 1px dashed var(--blue-dark);
+    transition: all 200ms ease-in-out;
+    cursor: pointer;
+    padding-right: 0.5rem;
+}
+.qustion-login span:hover{
+    font-weight: 600;
+    color: var(--blue-main);
+}
+.form-mytitle{
     width: 20rem;
     height: 6rem;
     border:0.5rem solid var(--blue-main);
@@ -32,14 +48,16 @@
     right: 10px;
     transition: all 500ms ease-in-out;
     cursor: pointer;    
+
 }
 .btn-toggle.register{
     right: 102px;
     background-color: var(--green-main);
+    
+    
 }
-.form-title:has(.btn-toggle.register){
+.form-mytitle:has(.btn-toggle.register){
     border:0.5rem solid var(--green-main);
-    /* box-shadow: 0 0 6px 0px var(--green-main) inset, 0 0 9px 8px #dbe81f61 inset; */
 }
 .btn-toggle.register+.btn-login-wrapper {
     color: var(--blue-main);
@@ -67,6 +85,7 @@
     border-radius: 50%;
     position: absolute;
     background-color: var(--green-main);
+    transition: all 350ms ease-in-out;
 }
 .circle-one.register, .circle-two.register, .circle-three.register{
     background-color: var(--blue-main);

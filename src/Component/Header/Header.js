@@ -50,7 +50,7 @@ export default function Header() {
                     <h1 className="titleh1">امروز در پودایران</h1>
                     <h3 className="titleh3">کالکشنی زیبا از جدیدترین حوله ها</h3>
                     <h5 className="titleh5">استایلی جذاب برای همیشه</h5>
-                    <Link className="mybtn">
+                    <Link to={"/products"} className="mybtn">
                         مشاهده محصولات
                         <svg
                             xmlns="http://www.w3.org/2000/svg"

@@ -3,6 +3,11 @@ export const ProductsContext = createContext();
 
 const ProductsProvider = ({ children }) => {
     const [buyProducts, setBuyProducts] = useState([]);
-    return <ProductsContext.Provider value={{ buyProducts, setBuyProducts }}>{children}</ProductsContext.Provider>;
+    const [isLogin, setIsLogin] = useState([false]);
+    return (
+        <ProductsContext.Provider value={{ buyProducts, setBuyProducts, isLogin, setIsLogin }}>
+            {children}
+        </ProductsContext.Provider>
+    );
 };
 export default ProductsProvider;

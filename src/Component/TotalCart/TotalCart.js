@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./TotalCart.css";
 import { ProductsContext } from "../../Context/ProductsContext";
+import toast from "react-hot-toast";
 
 export default function TotalCart({ namebtn, routebtn, sendcost = 0, offcost = false }) {
     const prodcutsBasket = useContext(ProductsContext);
@@ -32,6 +33,16 @@ export default function TotalCart({ namebtn, routebtn, sendcost = 0, offcost = f
         let newPrice = Number(totalPrice - totalPrice * percentOffer);
         setPriceAfterOff(newPrice);
     }, [percentOffer, totalPrice]);
+
+    const notifyForLogin = () =>
+        toast.error("ابتدا بایستی ثبت نام کنید !", {
+            style: {
+                backgroundColor: "var(--green-main)",
+            },
+            position: "top-center",
+            duration: 3500,
+        });
+
     return (
         <>
             <div className="shoppingcart-total-wrapper">
@@ -77,23 +88,47 @@ export default function TotalCart({ namebtn, routebtn, sendcost = 0, offcost = f
                         <span className="shoppingcart-item-price-unit">تومان</span>{" "}
                     </p>
                 </div>
-                <Link to={routebtn} className="shoppingcart-total shoppingcart-total-btn">
-                    {namebtn}
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="var(--blue-main)"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                {ProductsContext.isLoign ? (
+                    <Link to={routebtn} className="shoppingcart-total shoppingcart-total-btn">
+                        {namebtn}
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--blue-main)"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path d="M11 7l-5 5l5 5" />
+                            <path d="M17 7l-5 5l5 5" />
+                        </svg>
+                    </Link>
+                ) : (
+                    <Link
+                        to={"/login"}
+                        onClick={() => notifyForLogin()}
+                        className="shoppingcart-total shoppingcart-total-btn"
                     >
-                        <path d="M11 7l-5 5l5 5" />
-                        <path d="M17 7l-5 5l5 5" />
-                    </svg>
-                </Link>
+                        {namebtn}
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--blue-main)"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path d="M11 7l-5 5l5 5" />
+                            <path d="M17 7l-5 5l5 5" />
+                        </svg>
+                    </Link>
+                )}
             </div>
         </>
     );

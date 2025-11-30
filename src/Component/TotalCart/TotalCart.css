@@ -94,36 +94,3 @@
 
 
 
-/* /responsive------------- */
-
-@media (max-width:1400px) {
-   
-}
-
-@media (max-width:1210px) {
-
-}
-@media (max-width:960px) {
-    .shoppingcart-page{
-        grid-template: auto/1fr;
-    }
-    .shoppingcart-item-details{
-        grid-template:1fr/ 3fr 2fr 2fr 1fr;
-    }
-    /* .shoppingcart-item-details{
-        grid-template: 1fr 1fr/1fr 1fr;
-    } */
-    .shoppingcart-item-remove-btn{
-        justify-self: center;
-    }
-    .shoppingcart-total-wrapper {
-        margin-top: 2rem;
-    }
-    .shoppingcart-empty-img{
-    max-width: 35%;
-    }
-    .shoppingcart-empty-title{
-    font-size: 1.5rem;
-    padding: 2rem 3rem;
-    }
-}

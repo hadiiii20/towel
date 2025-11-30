@@ -46,7 +46,7 @@
 .shoppingcart-item:last-child{
     border-bottom: none;
 }
-.shoppingcart-item-image img{
+.shoppingcart-item-image{
     width: 15rem;
     height: 15rem;
     object-fit: cover;
@@ -116,7 +116,7 @@
    .shoppingcart-empty-img{
     max-width: 45%;
     }
-    .shoppingcart-item-image img{
+    .shoppingcart-item-image{
     width: 11rem;
     height: 11rem;
     }
@@ -130,7 +130,7 @@
      .shoppingcart-item-remove-btn{
         justify-self: center;
     }
-     .shoppingcart-item-image img{
+     .shoppingcart-item-image{
     width: 15rem;
     height: 15rem;
     }
@@ -143,7 +143,7 @@
     .shoppingcart-item{
          grid-template: auto/1fr 
     }
-    .shoppingcart-item-image{
+    .shoppingcart-item-image-wrapper{
         justify-self: center;
         margin-bottom: 1rem;
     }

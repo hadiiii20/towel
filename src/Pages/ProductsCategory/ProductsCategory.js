@@ -25,6 +25,9 @@ export default function ProductsCategory() {
 
     const productSort = ["تخفیف دار ها", "جدیدترین", "پرفروش ترین", "پربازدیدترین", "ارزان ترین", "گران ترین"];
 
+    useEffect(() => {
+        setProductFilterDatabase(productInCategory);
+    }, [params]);
     const handleSelect = (e) => {
         if (productColor.includes(e)) {
             setProductFilterDatabase(productFilterDatabase.filter((item) => item.color === e));
@@ -63,9 +66,36 @@ export default function ProductsCategory() {
     return (
         <>
             <Breadcrumb nameGroup={params.categoryproduct} />
-            <div className="img-productpage-wrapper">
-                <img src="/images/towelPageProduct.jpg" alt="" />
-            </div>
+            {(params.categoryproduct === "حوله تنپوش زنانه" && (
+                <div className="img-productpage-wrapper">
+                    <img src="/images/category-woman.jpg" alt="" />
+                </div>
+            )) ||
+                (params.categoryproduct === "حوله تنپوش مردانه" && (
+                    <div className="img-productpage-wrapper">
+                        <img src="/images/category-man.jpg" alt="" />
+                    </div>
+                )) ||
+                (params.categoryproduct === "حوله تنپوش کودک" && (
+                    <div className="img-productpage-wrapper">
+                        <img src="/images/category-kids.jpg" alt="" />
+                    </div>
+                )) ||
+                (params.categoryproduct === "حوله استخری" && (
+                    <div className="img-productpage-wrapper">
+                        <img src="/images/category-gym.jpg" alt="" />
+                    </div>
+                )) ||
+                (params.categoryproduct === "حوله حمامی" && (
+                    <div className="img-productpage-wrapper">
+                        <img src="/images/category-bathroom.jpg" alt="" />
+                    </div>
+                )) ||
+                (params.categoryproduct === "حوله دستی" && (
+                    <div className="img-productpage-wrapper">
+                        <img src="/images/category-hand.jpg" alt="" />
+                    </div>
+                ))}
             <div className="table-product-wrapper">
                 <div className="filter-product-wrapper">
                     <div className="button-filter-wrapper">

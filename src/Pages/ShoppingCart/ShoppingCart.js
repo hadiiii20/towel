@@ -20,11 +20,6 @@ export default function ShoppingCart() {
         prodcutsBasket.setBuyProducts(updatedProducts);
     };
 
-    const totalPrice = prodcutsBasket.buyProducts.reduce(
-        (sum, item) => sum + Number(item.price.replace(/,/g, "")) * Number(item.number),
-        0
-    );
-
     return (
         <>
             {prodcutsBasket.buyProducts.length === 0 ? (
@@ -37,8 +32,10 @@ export default function ShoppingCart() {
                     <div className="shoppingcart-wrapper">
                         {prodcutsBasket.buyProducts.map((item) => (
                             <div className="shoppingcart-item" key={item.id}>
-                                <div className="shoppingcart-item-image">
-                                    <img src={item.src} alt="towel" />
+                                <div className="shoppingcart-item-image-wrapper">
+                                    <Link to={`/products/${item.type}/${item.id}`}>
+                                        <img src={item.src} className="shoppingcart-item-image" alt="towel" />
+                                    </Link>
                                 </div>
 
                                 <div className="shoppingcart-item-details">

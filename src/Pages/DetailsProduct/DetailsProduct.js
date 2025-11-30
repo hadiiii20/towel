@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useParams, Navigate } from "react-router-dom";
+import React, { useEffect, useState, useContext } from "react";
+import { useParams, Navigate, Link } from "react-router-dom";
 import Breadcrumb from "../../Component/Breadcrumb/Breadcrumb";
 import Rating from "@mui/material/Rating";
 import productsDatabase from "../../productsDatabase";
@@ -9,6 +9,8 @@ import SliderProducts from "../../Component/SliderProducts/SliderProducts";
 import ModalSizeGuid from "../../Component/ModalSizeGuide/ModalSizeGuid";
 import SizeTowel from "../../Component/SizeTowel/SizeTowel";
 import InputNumber from "../../Component/InputNumber/InputNumber";
+import toast from "react-hot-toast";
+import { ProductsContext } from "../../Context/ProductsContext";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -32,10 +34,16 @@ export default function DetailsProduct() {
     const [sizeDefault, setSizeDefault] = useState();
     const [priceDefaultOff, setPriceDefaultOff] = useState();
     const [priceDefaultOriginal, setPriceDefaultOriginal] = useState();
+    const [newNumberBasket, setNewNumberBasket] = useState(1);
 
     const [numberInputNumber, setNumberInputNumber] = useState();
 
     const [resetValue, setResetValue] = useState(false);
+
+    const prodcutsBasket = useContext(ProductsContext);
+
+    const [valueStars, setValueStars] = useState(5);
+    const [comment, setComment] = useState("");
 
     let hasPost = productsDatabase.some((item) => item.id === Number(params.id));
     let productSelect;
@@ -99,7 +107,76 @@ export default function DetailsProduct() {
 
         e.target.classList.add("selected__size");
     };
-    // console.log(numberInputNumber);
+
+    // button Basket------------------------------
+    const calNumberBasket = (newNumber) => {
+        setNewNumberBasket(newNumber);
+    };
+    let isProductInProudct = prodcutsBasket.buyProducts.some(
+        (item) => item.name === productSelect.name && item.size === sizeDefault
+    );
+    let addToBasket = () => {
+        if (!isProductInProudct) {
+            let newBuyProduct = {
+                id: productSelect.id,
+                name: productSelect.name,
+                size: sizeDefault,
+                price: priceOff ? priceOff : priceDefaultOff ? priceDefaultOff : priceDefaultOriginal,
+                src: productSelect.source,
+                number: newNumberBasket,
+                maxnumber: numberInputNumber,
+            };
+
+            prodcutsBasket.setBuyProducts((prevBuyProducts) => [...prevBuyProducts, newBuyProduct]);
+            notify();
+        } else {
+            let productCart = [...prodcutsBasket.buyProducts];
+
+            productCart.some((pro) => {
+                if (pro.name === productSelect.name && pro.size === sizeDefault) {
+                    if (pro.number < pro.maxnumber) {
+                        pro.number += 1;
+                        notifyUpadateNumber();
+                    } else {
+                        notifyErrorMaxnumber();
+                    }
+                    return true;
+                }
+            });
+            prodcutsBasket.setBuyProducts(productCart);
+        }
+    };
+
+    //toast---------------------------------------
+    const notify = () =>
+        toast.success("محصول با موفقیت به سبد خرید اضافه شد !", {
+            style: {
+                backgroundColor: "var(--green-main)",
+            },
+        });
+    const notifyErrorMaxnumber = () => toast.error("محدودیت موجودی!! ");
+    const notifyUpadateNumber = () =>
+        toast.success("تعداد محصول در  🛒 بروزرسانی شد !", {
+            style: {
+                border: "2px solid var(--blue-dark)",
+                padding: "16px",
+                color: "var(--blue-dark)",
+                backgroundColor: "var(--blue-glass)",
+            },
+            iconTheme: {
+                primary: "var(--blue-dark)",
+                secondary: "var(--blue-glass)",
+            },
+        });
+    const notifyErrorStar = () =>
+        toast.error("امتیاز صحیح وارد نشد مجدد انتخاب کنید!!", {
+            style: {
+                backgroundColor: "var(--green-main)",
+            },
+            position: "top-center",
+            duration: 3000,
+        });
+
     return (
         <>
             <Breadcrumb nameGroup={productSelect.type} nameProduct={productSelect.name} />
@@ -234,23 +311,26 @@ export default function DetailsProduct() {
                     </div>
 
                     <div class="input-number-wrapper">
-                        <InputNumber maxValue={numberInputNumber} value={resetValue} resetval={resetValue} />
+                        <InputNumber
+                            maxValue={numberInputNumber}
+                            value={resetValue}
+                            resetval={resetValue}
+                            numberChange={(newNumber) => calNumberBasket(newNumber)}
+                        />
                     </div>
-                    <div className="product-basket">
-                        <button className="btn-product-basket">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="20"
-                                height="20"
-                                fill="currentColor"
-                                className="bi bi-basket-fill"
-                                viewBox="0 0 16 16"
-                            >
-                                <path d="M5.071 1.243a.5.5 0 0 1 .858.514L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 6h1.717zM3.5 10.5a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0z" />
-                            </svg>
-                            افزودن به سبد خرید
-                        </button>
-                    </div>
+                    <Link onClick={() => addToBasket()} className="btn-product-basket">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            fill="currentColor"
+                            className="bi bi-basket-fill"
+                            viewBox="0 0 16 16"
+                        >
+                            <path d="M5.071 1.243a.5.5 0 0 1 .858.514L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 6h1.717zM3.5 10.5a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0z" />
+                        </svg>
+                        افزودن به سبد خرید
+                    </Link>
                 </div>
                 <div className="option-product-wrapper">
                     <div className="option-product option-quality">
@@ -413,13 +493,27 @@ export default function DetailsProduct() {
                         style={{
                             opacity: activeTab === "specification" ? 1 : 0,
                             height: activeTab === "specification" ? "auto" : "0",
+                            position: activeTab === "specification" ? "relative" : "relative",
+                            zIndex: activeTab === "specification" ? "1" : "-20",
                         }}
                     >
                         <table className="product-table">
                             <tbody className="product-table-body">
                                 <tr className="product-table-tr">
                                     <td className="product-table-td">قد حوله</td>
-                                    <td className="product-table-td">70 </td>
+                                    {productSelect.type === "حوله تنپوش زنانه" ||
+                                    productSelect.type === "حوله تنپوش مردانه" ? (
+                                        (sizeDefault === "S" && <td className="product-table-td">110 سانتی متر</td>) ||
+                                        (sizeDefault === "M" && <td className="product-table-td">115 سانتی متر</td>) ||
+                                        (sizeDefault === "L" && <td className="product-table-td">125 سانتی متر</td>) ||
+                                        (sizeDefault === "XL" && <td className="product-table-td">135 سانتی متر</td>) ||
+                                        (sizeDefault === "XXL" && <td className="product-table-td">145 سانتی متر</td>)
+                                    ) : (
+                                        <td className="product-table-td">
+                                            {sizeDefault}
+                                            سانتی متر
+                                        </td>
+                                    )}
                                 </tr>
                                 <tr className="product-table-tr">
                                     <td className="product-table-td">جنس</td>
@@ -427,11 +521,21 @@ export default function DetailsProduct() {
                                 </tr>
                                 <tr className="product-table-tr">
                                     <td className="product-table-td">رنگ</td>
-                                    <td className="product-table-td">نسکافه ای</td>
+                                    <td className="product-table-td">
+                                        <div
+                                            style={{
+                                                backgroundColor: `${productSelect.color}`,
+                                                width: "2rem",
+                                                height: "2rem",
+                                                borderRadius: "50%",
+                                                paddingTop: "1rem",
+                                            }}
+                                        ></div>
+                                    </td>
                                 </tr>
                                 <tr className="product-table-tr">
                                     <td className="product-table-td">مدل تولیدی</td>
-                                    <td className="product-table-td"> کلاه طرح موش تولید شده</td>
+                                    <td className="product-table-td">{productSelect.type}</td>
                                 </tr>
                                 <tr className="product-table-tr">
                                     <td className="product-table-td">سایر توضیحات</td>
@@ -451,17 +555,35 @@ export default function DetailsProduct() {
                             <div className="write-comment">
                                 <h4 className="rate-title">به این محصول امتیاز دهید :</h4>
                                 <Rating
-                                    name="half-rating-read"
+                                    name="controlled-rating"
                                     style={{ direction: "ltr" }}
-                                    defaultValue={5}
+                                    value={valueStars}
                                     precision={0.5}
                                     size="large"
                                     className="rate-stars"
+                                    onChange={(event, newValue) => {
+                                        setValueStars(newValue);
+                                        if (newValue === null) {
+                                            notifyErrorStar();
+                                        } else {
+                                            console.log(newValue);
+                                        }
+                                    }}
                                 />
-                                <label for="w3review" className="write-comment-label">
+                                <label htmlFor="commentproduct" className="write-comment-label">
                                     نظر خود را در مورد این محصول ثبت کنید :
                                 </label>
-                                <textarea id="w3review" name="w3review" rows="4" cols="10"></textarea>
+                                <textarea
+                                    id="commentproduct"
+                                    name="commentproduct"
+                                    rows="4"
+                                    cols="10"
+                                    value={comment}
+                                    onChange={(e) => {
+                                        setComment(e.target.value);
+                                        console.log(e.target.value);
+                                    }}
+                                ></textarea>
                                 <Button nameBtn={"ثبت نظر"} />
                             </div>
                             <Divider name={"نظرات کاربران"} />

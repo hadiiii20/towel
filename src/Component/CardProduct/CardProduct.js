@@ -39,6 +39,20 @@ export default function CardProduct({ srcCard, nameCard, detailsCard, typeCard, 
     let isProductInProudct = prodcutsBasket.buyProducts.some(
         (item) => item.name === nameCard && item.size === sizeDefault
     );
+    useEffect(() => {
+        const firstAvailable = detailsCard.find((pro) => pro.number > 0);
+
+        if (firstAvailable) {
+            let priceMain = Number(firstAvailable.price).toLocaleString();
+            let convertNum = Number(firstAvailable.price);
+            offCard > 0 && (convertNum = (1 - offCard) * convertNum);
+            let PriceDefaultOff = convertNum.toLocaleString();
+
+            setPriceDefaultOff(PriceDefaultOff);
+            setPriceDefaultOriginal(priceMain);
+            setSizeDefault(firstAvailable.size);
+        }
+    }, [detailsCard, offCard]);
 
     let addToBasket = () => {
         if (!isProductInProudct) {
@@ -71,20 +85,7 @@ export default function CardProduct({ srcCard, nameCard, detailsCard, typeCard, 
             prodcutsBasket.setBuyProducts(productCart);
         }
     };
-    useEffect(() => {
-        const firstAvailable = detailsCard.find((pro) => pro.number > 0);
 
-        if (firstAvailable) {
-            let priceMain = Number(firstAvailable.price).toLocaleString();
-            let convertNum = Number(firstAvailable.price);
-            offCard > 0 && (convertNum = (1 - offCard) * convertNum);
-            let PriceDefaultOff = convertNum.toLocaleString();
-
-            setPriceDefaultOff(PriceDefaultOff);
-            setPriceDefaultOriginal(priceMain);
-            setSizeDefault(firstAvailable.size);
-        }
-    }, [detailsCard, offCard]);
     const notify = () =>
         toast.success("محصول با موفقیت به سبد خرید اضافه شد !", {
             style: {

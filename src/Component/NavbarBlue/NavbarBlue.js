@@ -118,9 +118,10 @@ export default function NavbarBlue() {
                     </ul>
                 </div>
 
+                {/* -Icon Menu--------------------------------------- */}
                 <div className="icon-menu">
                     <div className="login-wrapper" ref={loginRef}>
-                        <Link className="login-icon" onClick={() => setIsOpenLogin((prev) => !prev)}>
+                        <Link to={"/login"} className="login-icon" onClick={() => setIsOpenLogin((prev) => !prev)}>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="22"
@@ -132,7 +133,7 @@ export default function NavbarBlue() {
                                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
                             </svg>
                         </Link>
-                        <div className={isOpenLogin ? "login-menu-blue open" : "login-menu-blue"}>
+                        {/* <div className={isOpenLogin ? "login-menu-blue open" : "login-menu-blue"}>
                             <Link to={"/login"} className="first-login" onClick={() => setIsOpenLogin(false)}>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -165,7 +166,7 @@ export default function NavbarBlue() {
                                 </svg>
                                 ثبت نام
                             </Link>
-                        </div>
+                        </div> */}
                     </div>
                     <div className="basket-wrapper">
                         <Link to={"/shoppingcart"} className="buy-icon">
