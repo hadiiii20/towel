@@ -156,7 +156,7 @@ export default function NavbarBlue() {
                         </Link>
                         {prodcutsBasket.isLogin && (
                             <div className={isOpenLogin ? "login-menu-blue open" : "login-menu-blue"}>
-                                <Link className="first-login" onClick={() => setIsOpenLogin(false)}>
+                                <Link to={"/paneluser"} className="first-login" onClick={() => setIsOpenLogin(false)}>
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         width="16"

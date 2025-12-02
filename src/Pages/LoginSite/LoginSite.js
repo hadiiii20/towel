@@ -38,6 +38,11 @@ export default function LoginSite() {
                 notifyUserExist();
             } else {
                 usersContext.setUsersLogin((prevUsers) => [...prevUsers, formData]);
+                usersContext.setUserLoginOnline({
+                    name: formData.name,
+                    mobile: formData.mobile,
+                    password: formData.password,
+                });
                 setFormData({
                     name: "",
                     mobile: "",
@@ -60,6 +65,11 @@ export default function LoginSite() {
                 notifyLogin("به پیج پودایران خوش آمدید 🥰");
                 navigate("/", { replace: true });
                 usersContext.setIsLogin(true);
+                usersContext.setUserLoginOnline({
+                    name: formData.name,
+                    mobile: formData.mobile,
+                    password: formData.password,
+                });
             } else {
                 usersContext.setUsersLogin((prevUsers) => [...prevUsers, formData]);
                 notifyLoginError("شماره شما ثبت نشده است ابتدا ثبت نام کنید");

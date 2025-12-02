@@ -8,6 +8,7 @@ import ContactUs from "./Pages/ContactUs/ContactUs";
 import ShoppingCart from "./Pages/ShoppingCart/ShoppingCart";
 import CartCheckout from "./Pages/CartCheckout/CartCheckout";
 import ProductsCategory from "./Pages/ProductsCategory/ProductsCategory";
+import UserPanel from "./Pages/UserPanel/UserPanel";
 
 let routes = [
     { path: "/", element: <Home /> },
@@ -20,6 +21,7 @@ let routes = [
     { path: "/shoppingcart/checkout", element: <CartCheckout /> },
     { path: "/products/:categoryproduct/:id", element: <DetailsProduct /> },
     { path: "/ErrorPage", element: <ErrorPage /> },
+    { path: "/paneluser", element: <UserPanel /> },
     { path: "*", element: <ErrorPage /> },
 ];
 

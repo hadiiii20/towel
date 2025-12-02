@@ -5,9 +5,19 @@ const ProductsProvider = ({ children }) => {
     const [buyProducts, setBuyProducts] = useState([]);
     const [isLogin, setIsLogin] = useState(false);
     const [usersLogin, setUsersLogin] = useState([]);
+    const [userLoginOnline, setUserLoginOnline] = useState();
     return (
         <ProductsContext.Provider
-            value={{ buyProducts, setBuyProducts, isLogin, setIsLogin, usersLogin, setUsersLogin }}
+            value={{
+                buyProducts,
+                setBuyProducts,
+                isLogin,
+                setIsLogin,
+                usersLogin,
+                setUsersLogin,
+                userLoginOnline,
+                setUserLoginOnline,
+            }}
         >
             {children}
         </ProductsContext.Provider>
