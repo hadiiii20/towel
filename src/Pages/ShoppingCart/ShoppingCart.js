@@ -26,6 +26,12 @@ export default function ShoppingCart() {
                 <div className="shoppingcart-empty">
                     <img src="./images/empty-cart0.png" className="shoppingcart-empty-img" alt="" />
                     <h2 className="shoppingcart-empty-title">سبد خرید شما خالی است !!</h2>
+                    <div className="shoppingcart-empty-gobuy-parent">
+                        <Link to={"/products"} className="shoppingcart-empty-gobuy">
+                            {" "}
+                            بریم خرید کنیم🛒{" "}
+                        </Link>
+                    </div>
                 </div>
             ) : (
                 <div className="shoppingcart-page">

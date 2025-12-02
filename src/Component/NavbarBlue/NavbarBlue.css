@@ -76,42 +76,49 @@
     align-items: flex-start;
     flex-direction: column;
     gap: 2rem;
-    padding-right: 2rem;
+    padding-right: 0.7rem;
     padding-bottom: 1.2rem;
     box-shadow: 0px 0px 6px 0px var(--blue-dark);
-    top:3.5rem;
+    top:-2rem;
     position: absolute;
     right: -8rem;
     width: 10rem;
     height: 0;
     opacity: 0;
-    transition: all 200ms ease-in-out;
+    transition: all 300ms ease-in-out;
 }
 .login-menu-blue.open{
-    height: 12rem;
+    height: 10rem;
     opacity: 1;
+    top:3.5rem;
 }
 .first-login, .sign-up-menu{
     display: flex;
     justify-content: center;
     align-items:center;
-    color: var(--blue-dark);
+    color: var(--white);
     font-size: 1.4rem;
     cursor: pointer;
 }
 .first-login svg, .sign-up-menu svg{
-    stroke: var(--blue-dark);
+    stroke: var(--white);
 }
 .first-login:hover, .sign-up-menu:hover{
-    color: var(--white);
+    color: var(--green-main);
+   
 } 
+.first-login:hover svg, .sign-up-menu:hover svg{
+    stroke:var(--green-main)
+}
 .first-login{
    
 }
 .sign-up-menu{
     
 }
-
+.userLogin{
+    color: var(--green-main) !important;
+}
 .login-icon svg{
     color: var(--white);   
 }

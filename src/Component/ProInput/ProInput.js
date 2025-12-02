@@ -8,6 +8,8 @@ export default function ProInput({
     titleLabel,
     inputRef,
     nameInput,
+    value,
+    handleChangeValue,
     subMenu = false,
     selectCity = null,
     onSelectCity = null,
@@ -44,7 +46,7 @@ export default function ProInput({
         setToggleEye((prev) => !prev);
     };
 
-    // select city
+    // select city///////////////////
     const selectCityHandler = (e) => {
         const selected = e.target.innerHTML.trim();
         inputRef.current.value = selected;
@@ -56,7 +58,8 @@ export default function ProInput({
         setIsSubMenuVillage(false);
         setClickInputMobile(true);
     };
-    // open submenu
+
+    // open submenu//////////////////
     const subMenuHandler = () => {
         if (inputRef.current.name === "city") {
             setIsSubMenuCity(true);
@@ -68,14 +71,15 @@ export default function ProInput({
             setIsSubMenuVillage(true);
         }
     };
-    //close sub menu
+    //////////////////////////////////
+
+    //close sub menu//////////////////////
     const handleClickOutside = (event) => {
         if (closeCityRef.current && !closeCityRef.current.contains(event.target)) {
             setIsSubMenuCity(false);
             setIsSubMenuVillage(false);
         }
     };
-
     useEffect(() => {
         document.addEventListener("click", handleClickOutside);
 
@@ -83,6 +87,7 @@ export default function ProInput({
             document.removeEventListener("click", handleClickOutside);
         };
     }, []);
+    //////////////////////////////////////
 
     useEffect(() => {
         if (inputRef.current.name === "village") {
@@ -97,6 +102,7 @@ export default function ProInput({
                     {titleLabel}
                 </label>
 
+                {/* -Icon eye------------------ */}
                 {type === "password" && (
                     <span>
                         <svg
@@ -104,7 +110,7 @@ export default function ProInput({
                             width="16"
                             height="16"
                             fill="currentColor"
-                            class={toggleEye ? "eyepassword-none" : "bi bi-eye-fill eyepassword"}
+                            className={toggleEye ? "eyepassword-none" : "bi bi-eye-fill eyepassword"}
                             viewBox="0 0 16 16"
                             onClick={eyeHandler}
                         >
@@ -116,7 +122,7 @@ export default function ProInput({
                             width="16"
                             height="16"
                             fill="currentColor"
-                            class={toggleEye ? "bi bi-eye-slash-fill eyepassword" : "eyepassword-none"}
+                            className={toggleEye ? "bi bi-eye-slash-fill eyepassword" : "eyepassword-none"}
                             viewBox="0 0 16 16"
                             onClick={eyeHandler}
                         >
@@ -132,7 +138,7 @@ export default function ProInput({
                         id={nameInput}
                         className="input-login"
                         name={nameInput}
-                        autocomplete="new-password"
+                        autoComplete="new-password"
                         onClick={() => setClickInputMobile(true)}
                         onFocus={() => setClickInputMobile(true)}
                         onBlur={() => inputRef.current.value === "" && setClickInputMobile(false)}
@@ -143,7 +149,7 @@ export default function ProInput({
                         type={type}
                         id={nameInput}
                         className="input-login"
-                        autocomplete="new-password"
+                        autoComplete="new-password"
                         onClick={() => {
                             setClickInputMobile(true);
                             subMenuHandler();
@@ -159,6 +165,8 @@ export default function ProInput({
                                 e.target.value = e.target.value.replace(/[^0-9]/g, "");
                             },
                         })}
+                        value={value}
+                        onChange={handleChangeValue}
                     />
                 )}
                 {subMenu && isSubMenuCity && (

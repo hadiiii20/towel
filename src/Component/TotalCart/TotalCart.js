@@ -29,6 +29,8 @@ export default function TotalCart({ namebtn, routebtn, sendcost = 0, offcost = f
             setOffMassage("");
         }
     };
+    console.log("isLogin:", prodcutsBasket.isLogin);
+
     useEffect(() => {
         let newPrice = Number(totalPrice - totalPrice * percentOffer);
         setPriceAfterOff(newPrice);
@@ -88,7 +90,7 @@ export default function TotalCart({ namebtn, routebtn, sendcost = 0, offcost = f
                         <span className="shoppingcart-item-price-unit">تومان</span>{" "}
                     </p>
                 </div>
-                {ProductsContext.isLoign ? (
+                {prodcutsBasket.isLogin ? (
                     <Link to={routebtn} className="shoppingcart-total shoppingcart-total-btn">
                         {namebtn}
                         <svg

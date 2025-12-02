@@ -10,13 +10,13 @@
 }
 .qustion-login{
     font-size: 1.4rem;
-    color: var(--blue-dark);
+    color: var(--blue-main);
     transition: all 200ms ease-in-out;
-    margin-bottom: 0.5rem;
+    /* margin-bottom: 0.5rem; */
 
 }
 .qustion-login span{
-    border-bottom: 1px dashed var(--blue-dark);
+    border-bottom: 1px dashed var(--blue-main);
     transition: all 200ms ease-in-out;
     cursor: pointer;
     padding-right: 0.5rem;
@@ -141,7 +141,7 @@
     font-family: "mikhakBold";
     font-size: 1.6rem;
     padding:0.5rem 3rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -2,7 +2,7 @@
     margin: 15rem auto;
     display: grid;
     justify-items: center;
-    gap: 2rem;
+    
 }
 .shoppingcart-empty-img{
     max-width: 30%;
@@ -14,10 +14,26 @@
     background-color: var(--green-main);
     padding: 2rem 3rem;
     border-radius: 1.5rem;
-    margin-top: 1rem;
+    margin-top: 2rem;
 }
-
-
+.shoppingcart-empty-gobuy-parent{
+    background-color: var(--blue-glass); 
+     padding: 1.5rem 3rem;
+     text-align: center;
+      border-radius: 0 0 8rem 8rem;
+}
+.shoppingcart-empty-gobuy{
+    font-weight: 600;
+    color: var(--blue-dark);
+}
+.shoppingcart-empty-gobuy-parent:hover{
+    box-shadow: 0 0 10px 5px var(--green-main);
+    background-color: var(--blue-main);
+    
+}
+.shoppingcart-empty-gobuy-parent:hover .shoppingcart-empty-gobuy{
+    color: var(--blue-glass);
+}
 .shoppingcart-page{
     margin: 16rem auto;
     display: grid;

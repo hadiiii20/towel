@@ -121,52 +121,81 @@ export default function NavbarBlue() {
                 {/* -Icon Menu--------------------------------------- */}
                 <div className="icon-menu">
                     <div className="login-wrapper" ref={loginRef}>
-                        <Link to={"/login"} className="login-icon" onClick={() => setIsOpenLogin((prev) => !prev)}>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="22"
-                                height="22"
-                                fill="currentColor"
-                                className="bi bi-person-fill"
-                                viewBox="0 0 16 16"
-                            >
-                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-                            </svg>
+                        <Link
+                            to={`${prodcutsBasket.isLogin ? "" : "/login"}`}
+                            className="login-icon"
+                            onClick={() => setIsOpenLogin((prev) => !prev)}
+                        >
+                            {prodcutsBasket.isLogin ? (
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="22"
+                                    height="22"
+                                    fill="currentColor"
+                                    className="bi bi-person-check-fill userLogin"
+                                    viewBox="0 0 16 16"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0"
+                                    />
+                                    <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                                </svg>
+                            ) : (
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="22"
+                                    height="22"
+                                    fill="currentColor"
+                                    className="bi bi-person-fill"
+                                    viewBox="0 0 16 16"
+                                >
+                                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                                </svg>
+                            )}
                         </Link>
-                        {/* <div className={isOpenLogin ? "login-menu-blue open" : "login-menu-blue"}>
-                            <Link to={"/login"} className="first-login" onClick={() => setIsOpenLogin(false)}>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="16"
-                                    height="16"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="#000000"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
+                        {prodcutsBasket.isLogin && (
+                            <div className={isOpenLogin ? "login-menu-blue open" : "login-menu-blue"}>
+                                <Link className="first-login" onClick={() => setIsOpenLogin(false)}>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="#000000"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="M15 6l-6 6l6 6" />
+                                    </svg>
+                                    پنل کاربری
+                                </Link>
+                                <Link
+                                    className="sign-up-menu"
+                                    onClick={() => {
+                                        setIsOpenLogin(false);
+                                        prodcutsBasket.setIsLogin(false);
+                                    }}
                                 >
-                                    <path d="M15 6l-6 6l6 6" />
-                                </svg>
-                                ورود
-                            </Link>
-                            <Link to={"/login"} className="sign-up-menu" onClick={() => setIsOpenLogin(false)}>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="16"
-                                    height="16"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="#000000"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                >
-                                    <path d="M15 6l-6 6l6 6" />
-                                </svg>
-                                ثبت نام
-                            </Link>
-                        </div> */}
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="#000000"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="M15 6l-6 6l6 6" />
+                                    </svg>
+                                    خروج
+                                </Link>
+                            </div>
+                        )}
                     </div>
                     <div className="basket-wrapper">
                         <Link to={"/shoppingcart"} className="buy-icon">
