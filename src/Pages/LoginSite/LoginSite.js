@@ -62,14 +62,20 @@ export default function LoginSite() {
         } else {
             let isUserExist = usersContext.usersLogin.some((item) => item.mobile === formData.mobile);
             if (isUserExist) {
-                notifyLogin("به پیج پودایران خوش آمدید 🥰");
-                navigate("/", { replace: true });
-                usersContext.setIsLogin(true);
-                usersContext.setUserLoginOnline({
-                    name: formData.name,
-                    mobile: formData.mobile,
-                    password: formData.password,
-                });
+                let findUserLogin = usersContext.usersLogin.filter((item) => item.mobile === formData.mobile);
+                let isCorrectPassword = findUserLogin[0].password === formData.password;
+                if (isCorrectPassword) {
+                    notifyLogin("به پیج پودایران خوش آمدید 🥰");
+                    navigate("/", { replace: true });
+                    usersContext.setIsLogin(true);
+                    usersContext.setUserLoginOnline({
+                        name: findUserLogin[0].name,
+                        mobile: findUserLogin[0].mobile,
+                        password: findUserLogin[0].password,
+                    });
+                } else {
+                    notifyLoginError("رمز عبور اشتباه است");
+                }
             } else {
                 usersContext.setUsersLogin((prevUsers) => [...prevUsers, formData]);
                 notifyLoginError("شماره شما ثبت نشده است ابتدا ثبت نام کنید");

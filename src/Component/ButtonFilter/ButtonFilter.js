@@ -32,9 +32,9 @@ export default function ButtonFilter({ nameButton, itemFilter, handlerSelect, na
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="#000000"
-                    stroke-width="1.75"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="1.75"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     className="button-filter-icon"
                     style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0)" }}
                 >

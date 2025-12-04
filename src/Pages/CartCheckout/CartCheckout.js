@@ -27,7 +27,6 @@ export default function CartCheckout() {
 
     const handleChange = (event) => {
         setValue(event.target.value);
-        console.log("Value: ", value);
     };
     const handleChangePay = (event) => {
         setPeyValue(event.target.value);

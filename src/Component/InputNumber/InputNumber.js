@@ -21,8 +21,8 @@ export default function InputNumber({ numberChange = () => {}, maxValue, value, 
     };
 
     return (
-        <div class="number-wrapper">
-            <div class="plus-parent">
+        <div className="number-wrapper">
+            <div className="plus-parent">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="18"
@@ -30,10 +30,10 @@ export default function InputNumber({ numberChange = () => {}, maxValue, value, 
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="#000000"
-                    stroke-width="2.75"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="icon-up"
+                    strokeWidth="2.75"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="icon-up"
                     onClick={() => {
                         handelMaxNumber();
                     }}
@@ -43,16 +43,16 @@ export default function InputNumber({ numberChange = () => {}, maxValue, value, 
                 </svg>
             </div>
 
-            <div class="input-number-parent">
+            <div className="input-number-parent">
                 <input
-                    class="input-number"
+                    className="input-number"
                     value={productValue}
                     type="number"
                     name="numver-product"
                     id="number-prouduct"
                 />
             </div>
-            <div class="minus-parent">
+            <div className="minus-parent">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="18"
@@ -60,10 +60,10 @@ export default function InputNumber({ numberChange = () => {}, maxValue, value, 
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="#000000"
-                    stroke-width="2.75"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="icon-down"
+                    strokeWidth="2.75"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="icon-down"
                     onClick={() => {
                         handelMinNumber();
                     }}

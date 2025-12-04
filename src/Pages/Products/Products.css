@@ -177,6 +177,9 @@
         gap: 2rem;
 
     }
+     .emptyProduct h3{
+        font-size: 3rem;
+     }
 
    
 }

@@ -106,6 +106,7 @@ export default function CardProduct({ srcCard, nameCard, detailsCard, typeCard, 
                 secondary: "var(--blue-glass)",
             },
         });
+
     return (
         <>
             <div className="CardProduct">

@@ -20,8 +20,6 @@ export default function TotalCart({ namebtn, routebtn, sendcost = 0, offcost = f
             setPercentOffer(0.1);
             setOffMassage("10 درصد روی جمع خریدتان اعمال شد ");
             setUseOffer(true);
-
-            console.log(priceAfterOff);
         } else {
             setOffMassage("کد صحیح نمی باشد");
         }
@@ -29,8 +27,6 @@ export default function TotalCart({ namebtn, routebtn, sendcost = 0, offcost = f
             setOffMassage("");
         }
     };
-    console.log("isLogin:", prodcutsBasket.isLogin);
-
     useEffect(() => {
         let newPrice = Number(totalPrice - totalPrice * percentOffer);
         setPriceAfterOff(newPrice);
@@ -100,9 +96,9 @@ export default function TotalCart({ namebtn, routebtn, sendcost = 0, offcost = f
                             viewBox="0 0 24 24"
                             fill="none"
                             stroke="var(--blue-main)"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                         >
                             <path d="M11 7l-5 5l5 5" />
                             <path d="M17 7l-5 5l5 5" />
@@ -122,9 +118,9 @@ export default function TotalCart({ namebtn, routebtn, sendcost = 0, offcost = f
                             viewBox="0 0 24 24"
                             fill="none"
                             stroke="var(--blue-main)"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                         >
                             <path d="M11 7l-5 5l5 5" />
                             <path d="M17 7l-5 5l5 5" />

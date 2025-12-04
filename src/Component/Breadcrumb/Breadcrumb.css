@@ -7,7 +7,9 @@
     justify-content: start;
     margin-top: 15rem;
     margin-bottom:5rem;
-    gap: 1rem;
+    gap: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
 }
 .breaditem a{
     color: var(--blue-main);

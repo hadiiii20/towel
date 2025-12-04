@@ -504,6 +504,7 @@
     .option-product-wrapper{
       display: grid;
       grid-template: auto/1fr 1fr;
+      margin-top: 4rem;
     }
 
 }
@@ -530,6 +531,14 @@
     width: 33rem;
     height: 50rem;
     justify-self: center;
+    }
+    .tab-title{
+      width: 8rem;
+    }
+    .tab-title-label{
+      width: 8rem;
+      height: 5rem;
+      font-size: 1.5rem;
     }
 }
 

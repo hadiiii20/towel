@@ -1,15 +1,14 @@
-.number-wrapper{
+.number-wrapper {
     border: 3px solid var(--blue-dark);
     position: relative;
     width: 8rem;
     height: 3.5rem;
     border-radius: 3rem;
-   
 }
-.input-number-parent{
+.input-number-parent {
     position: absolute;
 }
-.input-number{
+.input-number {
     font-family: "mikhakBold";
     position: absolute;
     top: 0.5rem;
@@ -19,43 +18,44 @@
     border: none;
     text-align: center;
     font-size: 2rem;
-    outline: none;    
+    outline: none;
     color: var(--blue-dark);
     background-color: transparent;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 /* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
+input[type="number"] {
+    -moz-appearance: textfield;
 }
-.icon-up{
+.icon-up {
     position: absolute;
     top: 5px;
     left: 5px;
-    stroke-width: 3.5px;
-    stroke: var(--blue-dark); 
-}
-.icon-down{
-    position: absolute;
-    top: 5px;
-    right:5px;
-    stroke-width: 3.5px;
+    strokewidth: 3.5px;
     stroke: var(--blue-dark);
 }
-.icon-up:hover, .icon-down:hover{
-  cursor: pointer;
-  stroke: var(--blue-main);
+.icon-down {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    strokewidth: 3.5px;
+    stroke: var(--blue-dark);
 }
-.product-number input{
-  padding: 0.8rem;
-  width: 5rem;
-  height: 5rem;
+.icon-up:hover,
+.icon-down:hover {
+    cursor: pointer;
+    stroke: var(--blue-main);
 }
-.plus-parent{
+.product-number input {
+    padding: 0.8rem;
+    width: 5rem;
+    height: 5rem;
+}
+.plus-parent {
     background-color: var(--blue-glass);
     height: 2.95rem;
     width: 2.5rem;
@@ -63,11 +63,10 @@ input[type=number] {
     position: absolute;
     left: 0;
 }
-.minus-parent{
+.minus-parent {
     background-color: var(--blue-glass);
     height: 2.95rem;
     width: 2.5rem;
-    border-radius:0 1.6rem 1.6rem 0 ;
+    border-radius: 0 1.6rem 1.6rem 0;
     position: absolute;
-    
 }

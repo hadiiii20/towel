@@ -32,11 +32,11 @@ export default function SliderProducts({ productsSample }) {
                 spaceBetween={10}
                 centeredSlides={false}
                 navigation={true}
-                // autoplay={{
-                //     delay: 2000,
-                //     disableOnInteraction: false,
-                //     pauseOnMouseEnter: true,
-                // }}
+                autoplay={{
+                    delay: 2000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
+                }}
                 freeMode={{
                     enabled: true,
                     sticky: true,

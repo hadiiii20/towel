@@ -58,3 +58,12 @@
 .side-panel-item:last-child{
     border-bottom: none;
 }
+@media (max-width:578px) {
+    .side-panel{
+        position: relative;
+        width: 100%;
+    }
+    .panel-wrapper{
+        grid-template: 1fr 1fr / 1fr;
+    }
+}
