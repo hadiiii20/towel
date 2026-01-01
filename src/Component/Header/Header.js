@@ -85,7 +85,7 @@ export default function Header() {
                     className="mySwiper swiper-woman"
                 >
                     <SwiperSlide className="img-woman">
-                        <img src="./images/abrangi.png" alt="" />
+                        <img src="./images/Abrangi.png" alt="" />
                     </SwiperSlide>
                     <SwiperSlide className="img-woman">
                         <img src="./images/palangi2.png" alt="" />
